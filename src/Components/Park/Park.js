@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Error from '../Error/Error';
 import { getParkInfo } from '../../apiCalls';
 import './Park.scss';
@@ -30,7 +31,14 @@ class Park extends Component {
             return <Error/>
         } else {
             return (
-                <h1>Park Page</h1>
+                <>
+                    <Link to={`${this.state.selectedParkCode}/info`}>
+                        <button>Park Info</button>
+                    </Link>
+                    <Link to={`${this.state.selectedParkCode}/potties`}>
+                        <button>Park Potties</button>
+                    </Link>
+                </>
             )
         }
     }
