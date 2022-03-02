@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect, NavLink, Link, Navigate } from 'react-router-dom';
 import Home from './Components/Home/Home';
-import AllToilets from './Components/AllToilets/AllToilets'
-// import ParkPage2 from './Components/ParkPage/ParkPage';
+import ToiletTypes from './Components/ToiletTypes/ToiletTypes'
 import Park from './Components/Park/Park';
 import Error from './Components/Error/Error';
 import './General Styles/App.scss';
@@ -24,8 +23,8 @@ class App extends Component {
       <main className = 'app'>
         <Switch>
           <Route exact path='/' render={() => <Home/>} />
-          {/* <Route path='/toilets' render={() => <AllToilets/>} /> */}
-          <Route path='/:parkroute' render={({ match }) => {
+          <Route exact path='/toilets' render={() => <ToiletTypes/>} />
+          <Route exact path='/:parkroute' render={({ match }) => {
             return <Park parkName={match.params.parkroute} />
           }}/>
           {/* <Route path='/error' render={() => <Error/>} />
