@@ -12,7 +12,7 @@ const cleanParkData = (parkInfo) => {
             weather: park.weatherInfo
         }
     } )
-    return cleanedData
+    return cleanedData[0]
 }
 
 export { cleanParkData }
