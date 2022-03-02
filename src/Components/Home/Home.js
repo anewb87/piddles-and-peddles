@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom';
 
 import './Home.scss';
 
-const Home = () => {
+const Home = ({ setParkCode }) => {
+
+//    const handleClick = (code) => {
+//         setParkCode(code)
+//     }
+
     return (
         <>
             <h1>THE MIGHTY FIVE</h1>
@@ -12,19 +17,19 @@ const Home = () => {
                 <button>Toilet Talk</button>
             </Link>
             <Link to='arch/park'>
-                <button>Arches</button>
+                <button onClick={() => setParkCode('arch')}>Arches</button>
             </Link>
             <Link to='brca/park'>
-                <button>Bryce</button>
+                <button onClick={() => setParkCode('brca')}>Bryce</button>
             </Link>
             <Link to='cany/park'>
-                <button>Canyonlands</button>
+                <button onClick={() => setParkCode('cany')}>Canyonlands</button>
             </Link>
             <Link to='care/park'>
-                <button>Capitol Reef</button>
+                <button onClick={() => setParkCode('care')}>Capitol Reef</button>
             </Link>
             <Link to='zion/park'>
-                <button>Zion</button>
+                <button onClick={() => setParkCode('zion')}>Zion</button>
             </Link>
         </>
     )

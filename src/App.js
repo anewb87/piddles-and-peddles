@@ -6,6 +6,7 @@ import Park from './Components/Park/Park';
 import ParkToilets from './Components/ParkToilets/ParkToilets';
 import ParkFacts from './Components/ParkFacts/ParkFacts';
 import Error from './Components/Error/Error';
+import { getParkInfo } from './apiCalls';
 import './General Styles/App.scss';
 
 class App extends Component {
@@ -20,14 +21,25 @@ class App extends Component {
     }
   }
 
+  // componentDidUpdate() {
+    
+  // }
+
+  setParkCode = (code) => {
+    this.setState({ currentPark: 'cleanedData', selectedParkCode: code })
+    // getParkInfo(code)
+    //   .then(cleanedData => this.setState({ currentPark: cleanedData, selectedParkCode: code}))
+    //   .catch(error => this.setState({ error: error }))
+  }
+
   render() {
     return (
       <main className = 'app'>
         <Switch>
-          <Route exact path='/' render={() => <Home/>} />
+          <Route exact path='/' render={() => <Home setParkCode={this.setParkCode}/>} />
           <Route exact path='/toilets' render={() => <ToiletTypes/>} />
-          <Route exact path='/:parkroute/park' render={({ match }) => {
-            return <Park parkName={match.params.parkroute} />
+          <Route exact path='/:parkroute/park' render={() => {
+            return <Park info={this.state.currentPark} code={this.state.selectedParkCode}/>
           }}/>
           <Route exact path='/:parkroute/park/info' render={() => <ParkFacts/>} />
           <Route exact path='/:parkroute/park/potties' render={() => <ParkToilets />} />
