@@ -8,15 +8,22 @@ class Park extends Component {
         super(props);
         this.state = {
             selectedParkCode: props.parkName,
-            currentPark: {},
+            currentPark: null,
             parkToilets: [],
             error: ''
         }
     }
 
-    getParkInfo(this.state.selectedParkCode)
-        .then(cleanedData => this.setState({ currentPark: cleanedData }))
-        .catch(error => this.setState({ error: error }))
+    componentDidMount() {
+        getParkInfo(this.state.selectedParkCode)
+            .then(cleanedData => console.log('cleaned data, line 19',cleanedData))
+            .then(cleanedData => this.setState({ currentPark: cleanedData }))
+            //these console logs below are running before the one on line 19
+            .then(console.log('this.state, line 22', this.state))
+            .then(console.log('this.state.fullName, line 23', this.state.fullName))
+            .catch(error => this.setState({ error: error }))
+    }
+
 
     render() {
         if (this.state.error) {
