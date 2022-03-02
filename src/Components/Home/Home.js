@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ParkPage from '../ParkPage/ParkPage';
+// import ParkPage from '../ParkPage/ParkPage';
+
 import './Home.scss';
 
 const Home = () => {
