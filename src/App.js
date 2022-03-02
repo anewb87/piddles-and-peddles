@@ -8,36 +8,55 @@ import ParkFacts from './Components/ParkFacts/ParkFacts';
 import Error from './Components/Error/Error';
 import './General Styles/App.scss';
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      allParks: [],
-      selectedPark: {},
-      parkToilets: [],
-      error: null,
-    }
-  }
+// class App extends Component {
+//   constructor() {
+//     super()
+//     // this.state = {
+//     //   allParks: [],
+//     //   selectedPark: {},
+//     //   parkToilets: [],
+//     //   error: null,
+//     // }
+//   }
 
-  render() {
+//   render() {
 
-    return (
-      <main className = 'app'>
-        <Switch>
-          <Route exact path='/' render={() => <Home/>} />
-          <Route exact path='/toilets' render={() => <ToiletTypes/>} />
-          <Route exact path='/:parkroute/park' render={({ match }) => {
-            return <Park parkName={match.params.parkroute} />
-          }}/>
-          <Route exact path='/:parkroute/park/info' render={() => <ParkFacts/>} />
-          <Route exact path='/:parkroute/park/potties' render={() => <ParkToilets />} />
-          <Route exact path='/error' render={() => <Error/>} />
-          {/* <Redirect to='/error'/> */}
-        </Switch>
-      </main>
-    )
-  }
+//     return (
+//       <main className = 'app'>
+//         <Switch>
+//           <Route exact path='/' render={() => <Home/>} />
+//           <Route exact path='/toilets' render={() => <ToiletTypes/>} />
+//           <Route exact path='/:parkroute/park' render={({ match }) => {
+//             return <Park parkName={match.params.parkroute} />
+//           }}/>
+//           <Route exact path='/:parkroute/park/info' render={() => <ParkFacts/>} />
+//           <Route exact path='/:parkroute/park/potties' render={() => <ParkToilets />} />
+//           <Route exact path='/error' render={() => <Error/>} />
+//           <Redirect to='/error'/>
+//         </Switch>
+//       </main>
+//     )
+//   }
 
+// }
+
+
+const App = () => {
+  return (
+    <main className='app'>
+      <Switch>
+        <Route exact path='/' render={() => <Home />} />
+        <Route exact path='/toilets' render={() => <ToiletTypes />} />
+        <Route exact path='/:parkroute/park' render={({ match }) => {
+          return <Park parkName={match.params.parkroute} />
+        }} />
+        <Route exact path='/:parkroute/park/info' render={() => <ParkFacts />} />
+        <Route exact path='/:parkroute/park/potties' render={() => <ParkToilets />} />
+        <Route exact path='/error' render={() => <Error />} />
+        <Redirect to='/error' />
+      </Switch>
+    </main>
+  )
 }
 
 export default App;
