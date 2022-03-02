@@ -1,14 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import Park from '../Park/Park';
 
 import './Home.scss';
 
 const Home = ({ setParkCode }) => {
-
-//    const handleClick = (code) => {
-//         setParkCode(code)
-//     }
 
     return (
         <>
@@ -36,5 +31,3 @@ const Home = ({ setParkCode }) => {
 }
 
 export default Home
-
-// arch, brca, cany, care, zion

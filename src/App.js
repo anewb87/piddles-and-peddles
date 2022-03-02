@@ -21,15 +21,10 @@ class App extends Component {
     }
   }
 
-  // componentDidUpdate() {
-    
-  // }
-
   setParkCode = (code) => {
-    this.setState({ currentPark: 'cleanedData', selectedParkCode: code })
-    // getParkInfo(code)
-    //   .then(cleanedData => this.setState({ currentPark: cleanedData, selectedParkCode: code}))
-    //   .catch(error => this.setState({ error: error }))
+    getParkInfo(code)
+      .then(cleanedData => this.setState({ currentPark: cleanedData, selectedParkCode: code}))
+      .catch(error => this.setState({ error: error }))
   }
 
   render() {
@@ -39,7 +34,7 @@ class App extends Component {
           <Route exact path='/' render={() => <Home setParkCode={this.setParkCode}/>} />
           <Route exact path='/toilets' render={() => <ToiletTypes/>} />
           <Route exact path='/:parkroute/park' render={() => {
-            return <Park info={this.state.currentPark} code={this.state.selectedParkCode}/>
+            return <Park info={this.state.currentPark} code={this.state.selectedParkCode} getInfo={this.setParkCode}/>
           }}/>
           <Route exact path='/:parkroute/park/info' render={() => <ParkFacts/>} />
           <Route exact path='/:parkroute/park/potties' render={() => <ParkToilets />} />
@@ -49,8 +44,9 @@ class App extends Component {
       </main>
     )
   }
-
 }
+
+export default App;
 
 
 // const App = () => {
@@ -71,4 +67,3 @@ class App extends Component {
 //   )
 // }
 
-export default App;
