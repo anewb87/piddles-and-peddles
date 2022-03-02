@@ -11,7 +11,8 @@ class Park extends Component {
             selectedParkCode: props.parkName,
             currentPark: null,
             parkToilets: [],
-            error: ''
+            error: '',
+            thing: 'hello'
         }
     }
 
@@ -27,15 +28,16 @@ class Park extends Component {
 
 
     render() {
+        console.log('in render', console.log(this.state.thing))
         if (this.state.error) {
             return <Error/>
         } else {
             return (
                 <>
-                    <Link to={`${this.state.selectedParkCode}/info`}>
+                    <Link to={`${this.state.selectedParkCode}/park/info`}>
                         <button>Park Info</button>
                     </Link>
-                    <Link to={`${this.state.selectedParkCode}/potties`}>
+                    <Link to={`${this.state.selectedParkCode}/park/potties`}>
                         <button>Park Potties</button>
                     </Link>
                 </>

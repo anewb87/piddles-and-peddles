@@ -26,13 +26,13 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={() => <Home/>} />
           <Route exact path='/toilets' render={() => <ToiletTypes/>} />
-          <Route exact path='/error' render={() => <Error/>} />
-          <Route exact path='/:parkroute' render={({ match }) => {
+          <Route exact path='/:parkroute/park' render={({ match }) => {
             return <Park parkName={match.params.parkroute} />
           }}/>
-          <Route exact path='/:parkroute/info' render={() => <ParkFacts/>} />
-          <Route exact path='/:parkroute/potties' render={() => <ParkToilets />} />
-          <Redirect to='/error'/>
+          <Route exact path='/:parkroute/park/info' render={() => <ParkFacts/>} />
+          <Route exact path='/:parkroute/park/potties' render={() => <ParkToilets />} />
+          <Route exact path='/error' render={() => <Error/>} />
+          {/* <Redirect to='/error'/> */}
         </Switch>
       </main>
     )

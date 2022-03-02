@@ -11,19 +11,19 @@ const Home = () => {
             <Link to='toilets'>
                 <button>Toilet Talk</button>
             </Link>
-            <Link to='arch'>
+            <Link to='arch/park'>
                 <button>Arches</button>
             </Link>
-            <Link to='brca'>
+            <Link to='brca/park'>
                 <button>Bryce</button>
             </Link>
-            <Link to='cany'>
+            <Link to='cany/park'>
                 <button>Canyonlands</button>
             </Link>
-            <Link to='care'>
+            <Link to='care/park'>
                 <button>Capitol Reef</button>
             </Link>
-            <Link to='zion'>
+            <Link to='zion/park'>
                 <button>Zion</button>
             </Link>
         </>
