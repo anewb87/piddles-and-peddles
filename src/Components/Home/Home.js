@@ -1,10 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import ParkPage from '../ParkPage/ParkPage';
 import './Home.scss';
 
 const Home = () => {
     return (
-        <h2>Hello</h2>
+        <>
+            <Link to='arch'>
+                <button>Arches, please!</button>
+            </Link>
+            <Link to='brca'>
+                <button>Bryce, thank you!</button>
+            </Link>
+            {/* <Link to=''>
+                <button>Bryce, thank you!</button>
+            </Link> */}
+        </>
     )
 }
 
 export default Home
+
+// arch, brca, cany, care, zion

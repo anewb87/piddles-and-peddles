@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch, Redirect, NavLink, Link, Navigate } from 'react-router-dom';
+import { Route, Switch, Redirect, NavLink, Link, Navigate } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import AllToilets from './Components/AllToilets/AllToilets'
 import ParkPage from './Components/ParkPage/ParkPage';
@@ -21,17 +21,15 @@ class App extends Component {
 
     return (
       <main className = 'app'>
-        <Router>
-          <Switch>
-            <Route path='/' render={() => <Home/>} />
-            <Route path='/toilets' render={() => <AllToilets/>} />
-            <Route path='/:parkroute' render={({ match }) => {
-              return <ParkPage parkName={match.params.parkroute} />
-            }}/>
-            <Route path='/error' render={() => <Error/>} />
-            <Redirect to='/error'/>
-          </Switch>
-        </Router>
+        <Switch>
+          <Route exact path='/' render={() => <Home/>} />
+          {/* <Route path='/toilets' render={() => <AllToilets/>} /> */}
+          <Route path='/:parkroute' render={({ match }) => {
+            return <ParkPage parkName={match.params.parkroute} />
+          }}/>
+          {/* <Route path='/error' render={() => <Error/>} />
+          <Redirect to='/error'/> */}
+        </Switch>
       </main>
     )
   }
