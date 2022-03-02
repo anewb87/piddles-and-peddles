@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ParkFacts.scss'
 
-const ParkFacts = () => {
+const ParkFacts = (props) => {
+    const { fromPark } = this.props.location.state
+    console.log(fromPark)
     return (
         <section>
             <Link to='/'>
