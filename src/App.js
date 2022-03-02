@@ -3,6 +3,8 @@ import { Route, Switch, Redirect, NavLink, Link, Navigate } from 'react-router-d
 import Home from './Components/Home/Home';
 import ToiletTypes from './Components/ToiletTypes/ToiletTypes'
 import Park from './Components/Park/Park';
+import ParkToilets from './Components/ParkToilets/ParkToilets';
+import ParkFacts from './Components/ParkFacts/ParkFacts';
 import Error from './Components/Error/Error';
 import './General Styles/App.scss';
 
@@ -24,11 +26,13 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={() => <Home/>} />
           <Route exact path='/toilets' render={() => <ToiletTypes/>} />
+          <Route exact path='/error' render={() => <Error/>} />
           <Route exact path='/:parkroute' render={({ match }) => {
             return <Park parkName={match.params.parkroute} />
           }}/>
-          {/* <Route path='/error' render={() => <Error/>} />
-          <Redirect to='/error'/> */}
+          <Route exact path='/:parkroute/info' render={() => <ParkFacts/>} />
+          <Route exact path='/:parkroute/potties' render={() => <ParkToilets />} />
+          <Redirect to='/error'/>
         </Switch>
       </main>
     )
