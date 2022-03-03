@@ -25,22 +25,36 @@ class ParkFacts extends Component {
         
         const entranceFee = this.state.currentPark.entranceFee ? this.state.currentPark.entranceFee : {}
         return (
-            <>
+            <section className='gen-page'>
                 <Link to='/'>
                     <button>Home</button>
                 </Link>
-                    <Link to={`/${this.state.selectedParkCode}/park/`}>
-                        <button>Back to Park</button>
-                    </Link>
-                <h1>{this.state.currentPark.name} General Info (ParkFacts Component)</h1>
-                <p>Admission on a bike: ${entranceFee.cost}</p>
-                <p>{entranceFee.description}</p>
-                <p>{entranceFee.title}</p>
-                <p>{this.state.currentPark.operatingHours}</p>
-                <p>{this.state.currentPark.weather}</p>
-                <p><a href={this.state.currentPark.npsLink}>Official {this.state.currentPark.name} National Park Service Website</a></p>
-    
-            </>
+                <Link to={`/${this.state.selectedParkCode}/park/`}>
+                    <button>Back to Park</button>
+                </Link>
+                <div className='flex'>
+                    <h1 className='info-title'>{this.state.currentPark.name} General Info</h1>
+                    <section className='info-holder'>
+                        {/* <section className='flex'> */}
+                            <div className='info-bite'>
+                                <h2 className='category yellow'>CYCLING / NON-CAR ADMISSION</h2>
+                                {/* <p className='orange'>${entranceFee.cost}</p> */}
+                                <p className='yellow'>{entranceFee.description}</p>
+                                <p className='yellow'>${entranceFee.cost} {entranceFee.title}</p>
+                            </div>
+                            <div className='info-bite'>
+                                <h2 className='category light-yellow'>OPERATING HOURS</h2>
+                                <p className='light-yellow'>{this.state.currentPark.operatingHours}</p>
+                            </div>
+                        {/* </section> */}
+                        <div className='info-bite'>
+                            <h2 className='category lightest-yellow'>WEATHER</h2>
+                            <p className='lightest-yellow'>{this.state.currentPark.weather}</p>
+                        </div>
+                        <p><a className='npsLink category' href={this.state.currentPark.npsLink}>Visit the Official NPS Website</a></p>
+                    </section>
+                </div>
+            </section>
         )
     }
 }
