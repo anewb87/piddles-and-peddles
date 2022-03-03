@@ -1,5 +1,9 @@
+@import '../../General\ Styles/_variables.scss';
+
 .park-toilet-page {
-    background-color: orange;
+    width: 100vw;
+    height: 100%;
+    background-color: $orange;
 }
 
 .toilet-title {
@@ -7,28 +11,43 @@
     text-align: center;
     font-weight: 700;
     font-size: 4em;
+    color: $yellow;
 }
 
 .info-container {
     display: flex;
-    // justify-content: center;
-
-
+    justify-content: center;
 }
 
 .map {
-    
+    height: 100vh;
 }
 
-@media screen and (max-width: 500px) {
-    body {
-        color: blue;
+.toilet-cards {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1380px) {
+    .info-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .map {
+        width: 100vw;
+        height: auto;
     }
 }
 
-// @media all {
+@media screen and (max-width: 800px) {
+     .toilet-title {
+        font-size: 3em;
+    }
+}
 
-// }
-
-//sounds like I might want to use vw for font sizes
-//https://www.youtube.com/watch?v=na-X_SM8vg0
+@media screen and (max-width: 500px) {
+     .toilet-title {
+        font-size: 2em;
+    }
+}

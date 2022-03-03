@@ -83,12 +83,13 @@ class ParkToilets extends Component {
                     <div>
                         <img className='map' src={this.state.map} alt={`Map of ${this.determinePark()} National Park Toilets`} />
                     </div>
-                    <div>{this.createToiletCards()}</div>
+                    <div className='toilet-cards'>
+                        <div>{this.createToiletCards()}</div>
+                    </div>
                 </section>
             </section>
         )
     }
-
 }
 
 export default ParkToilets
