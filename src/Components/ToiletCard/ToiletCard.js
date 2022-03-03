@@ -3,10 +3,10 @@ import './ToiletCard.scss';
 
 const ToiletCard = ({ id, location, region, type }) => {
     return (
-        <div>
+        <div className='card'>
             <h3>{location}</h3>
             <p>{region}</p>
-            <p>{type}</p>
+            <p>Toilet Type: {type}</p>
         </div>
     )
 }

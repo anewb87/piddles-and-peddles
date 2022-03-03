@@ -71,16 +71,20 @@ class ParkToilets extends Component {
         console.log('parkToilets', this.state.parkToilets)
         console.log('image url', this.state.map)
         return (
-            <section>
+            <section className='park-toilet-page'>
+                <h1 className='toilet-title'>{this.determinePark()} Toilet Locator</h1>
                 <Link to='/'>
                     <button>Home</button>
                 </Link>
                 <Link to={`/${this.state.selectedParkCode}/park/`}>
                     <button>Back to Park</button>
                 </Link>
-                <img className='map' src={this.state.map} alt={`Map of ${this.determinePark()} National Park Toilets`} />
-                <h2>{this.determinePark()} Toilet Locator</h2>
-                <div>{this.createToiletCards()}</div>
+                <section className='info-container'>
+                    <div>
+                        <img className='map' src={this.state.map} alt={`Map of ${this.determinePark()} National Park Toilets`} />
+                    </div>
+                    <div>{this.createToiletCards()}</div>
+                </section>
             </section>
         )
     }

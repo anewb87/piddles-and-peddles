@@ -6,7 +6,7 @@ import Park from './Components/Park/Park';
 import ParkToilets from './Components/ParkToilets/ParkToilets';
 import ParkFacts from './Components/ParkFacts/ParkFacts';
 import Error from './Components/Error/Error';
-import './General Styles/App.scss';
+import './General Styles/base.scss'
 
 class App extends Component {
   constructor() {
