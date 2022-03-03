@@ -17,17 +17,21 @@
 .info-container {
     display: flex;
     justify-content: center;
-
-
 }
 
 .map {
     height: 100vh;
 }
 
+.toilet-cards {
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1380px) {
     .info-container {
         flex-direction: column;
+        justify-content: center;
     }
     
     .map {
