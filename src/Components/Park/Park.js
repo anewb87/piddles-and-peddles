@@ -49,9 +49,6 @@ class Park extends Component {
 
     render() {
         const parkImage = this.state.currentPark.images ? this.state.currentPark.images[0] : {}
-
-        console.log(parkImage.url)
-
         const pageStyle = {
             backgroundImage: `url(${parkImage.url})`,
             backgroundSize: '100%',

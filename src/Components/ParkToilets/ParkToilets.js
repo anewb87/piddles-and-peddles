@@ -16,13 +16,14 @@ class ParkToilets extends Component {
         super(props);
         this.state = {
             selectedParkCode: props.parkName,
-            parkToilets: []
+            parkToilets: [],
+            map: ''
         }
     }
 
     componentDidMount() {
         getToiletInfo(this.state.selectedParkCode)
-            .then(data => this.setState({ parkToilets: data }))
+            .then(data => this.setState({ parkToilets: data.toilets, map: data.map }))
             .then(this.createToiletCards())
             .catch(error => this.setState({ error: error }))
     }
@@ -67,7 +68,8 @@ class ParkToilets extends Component {
     }
 
     render() {
-
+        console.log('parkToilets', this.state.parkToilets)
+        console.log('image url', this.state.map)
         return (
             <section>
                 <Link to='/'>
@@ -76,7 +78,7 @@ class ParkToilets extends Component {
                 <Link to={`/${this.state.selectedParkCode}/park/`}>
                     <button>Back to Park</button>
                 </Link>
-                <img className='map' alt={`Map of ${this.determinePark()} National Park Toilets`} />
+                <img className='map' src={this.state.map} alt={`Map of ${this.determinePark()} National Park Toilets`} />
                 <h2>{this.determinePark()} Toilet Locator</h2>
                 <div>{this.createToiletCards()}</div>
             </section>
