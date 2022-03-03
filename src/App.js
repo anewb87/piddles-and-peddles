@@ -6,7 +6,6 @@ import Park from './Components/Park/Park';
 import ParkToilets from './Components/ParkToilets/ParkToilets';
 import ParkFacts from './Components/ParkFacts/ParkFacts';
 import Error from './Components/Error/Error';
-// import { getParkInfo } from './apiCalls';
 import './General Styles/App.scss';
 
 class App extends Component {
@@ -30,7 +29,7 @@ class App extends Component {
             return <Park parkName={match.params.parkroute} />
           }}/>
           <Route exact path='/:parkroute/park/info' render={({ match }) => <ParkFacts parkName={match.params.parkroute} />} />
-          <Route exact path='/:parkroute/park/potties' render={() => <ParkToilets />} />
+          <Route exact path='/:parkroute/park/potties' render={( { match } ) => <ParkToilets parkName={match.params.parkroute}/>} />
           <Route exact path='/error' render={() => <Error/>} />
           <Redirect to='/error'/>
         </Switch>
