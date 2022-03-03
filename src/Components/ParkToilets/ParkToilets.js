@@ -17,13 +17,12 @@ class ParkToilets extends Component {
     componentDidMount() {
         getToiletInfo(this.state.selectedParkCode)
             .then(data => this.setState({ parkToilets: data }))
+            .then(this.createToiletCards())
             .catch(error => this.setState({ error: error }))
     }
 
     createToiletCards = () => {
-        console.log(this.state.parkToilets)
-        //ended for the night. Does not like this .map
-        const toiletCards = this.state.parkToilets.map((toilet) => {
+        const toiletCards = this.state.parkToilets.map(toilet => {
             return (
                 <ToiletCard 
                     key={toilet.id}
@@ -44,6 +43,9 @@ class ParkToilets extends Component {
             <section>
                 <Link to='/'>
                     <button>Home</button>
+                </Link>
+                <Link to={`/${this.state.selectedParkCode}/park/`}>
+                    <button>Back to Park</button>
                 </Link>
                 <h2>SPECIFIC PARK TOILET INFO</h2>
                 <div>{this.createToiletCards()}</div>
