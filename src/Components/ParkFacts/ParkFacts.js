@@ -10,7 +10,7 @@ class ParkFacts extends Component {
         this.state = {
             selectedParkCode: props.parkName,
             currentPark: {},
-            parkToilets: [],
+            // parkToilets: [],
             error: '',
         }
     }
@@ -38,7 +38,6 @@ class ParkFacts extends Component {
                 <p>{entranceFee.title}</p>
                 <p>{this.state.currentPark.operatingHours}</p>
                 <p>{this.state.currentPark.weather}</p>
-                
                 <p><a href={this.state.currentPark.npsLink}>Official {this.state.currentPark.name} National Park Service Website</a></p>
     
             </>

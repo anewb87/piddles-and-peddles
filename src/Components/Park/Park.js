@@ -29,12 +29,7 @@ class Park extends Component {
             return (
                 <>
                     <h1>{this.state.currentPark.name}</h1>
-                    <Link to={{
-                        pathname: `/${this.state.selectedParkCode}/park/info`,
-                        state: {
-                            fromPark: true
-                        }
-                    }}>
+                    <Link to={`/${this.state.selectedParkCode}/park/info`}>
                         <button>Park Info</button>
                     </Link>
                     <Link to={`/${this.state.selectedParkCode}/park/potties`}>

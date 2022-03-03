@@ -8,9 +8,7 @@ const Home = ({ getInfo }) => {
     return (
         <>
             <h1>THE MIGHTY FIVE</h1>
-            <Link to='toilets'> 
-                <button>Toilet Talk</button>
-            </Link>
+            <Link to='toilets'>Toilet Talk</Link>
             <Link to='arch/park'>Arches</Link>
             <Link to='brca/park'>Bryce</Link>
             <Link to='cany/park'>Canyonlands</Link>
