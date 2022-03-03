@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getToiletInfo } from '../../apiCalls';
 import ToiletCard from '../ToiletCard/ToiletCard';
-import arch from '../../Assets/arch.png';
-import brca from '../../Assets/brca.png';
-import cany from '../../Assets/cany.png';
-import care from '../../Assets/care.png';
-import zion from '../../Assets/zion.png';
 
 import './ParkToilets.scss'
 
