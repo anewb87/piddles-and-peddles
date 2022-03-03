@@ -22,26 +22,63 @@ class Park extends Component {
             .catch(error => this.setState({ error: error }))
     }
 
+    
+
     determineDisplay() {
+        // const parkImage = this.state.currentPark.images ? this.state.currentPark.images[0] : []
+
+        // console.log('park image', parkImage)
+        
+        // if (this.state.error) {
+        //     return <Error />
+        // } else {
+        //     return (
+        //         <section style={pageStyle}>
+        //             <h1>{this.state.currentPark.name}</h1>
+        //             {/* <img src={parkImage.url}/> */}
+        //             <Link to={`/${this.state.selectedParkCode}/park/info`}>
+        //                 <button>Park Info</button>
+        //             </Link>
+        //             <Link to={`/${this.state.selectedParkCode}/park/potties`}>
+        //                 <button>Park Potties</button>
+        //             </Link>
+        //         </section>
+        //     )
+        // }
+    }
+
+    render() {
+        const parkImage = this.state.currentPark.images ? this.state.currentPark.images[0] : {}
+
+        console.log(parkImage.url)
+
+        const pageStyle = {
+            backgroundImage: `url(${parkImage.url})`,
+            backgroundSize: '100%',
+            // height: '100%',
+            // overlfow: 'hidden'
+            // width: '100vw',
+            // height: '100%'
+            //need to figure this out
+        }
+
         if (this.state.error) {
             return <Error />
         } else {
             return (
-                <>
+                <section style={pageStyle}>
                     <h1>{this.state.currentPark.name}</h1>
+                    {/* <img src={parkImage.url}/> */}
                     <Link to={`/${this.state.selectedParkCode}/park/info`}>
                         <button>Park Info</button>
                     </Link>
                     <Link to={`/${this.state.selectedParkCode}/park/potties`}>
                         <button>Park Potties</button>
                     </Link>
-                </>
+                </section>
             )
         }
-    }
-
-    render() {
-        return this.determineDisplay()
+        // return this.determineDisplay()
     }
 }
 
