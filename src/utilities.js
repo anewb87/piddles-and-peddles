@@ -15,19 +15,4 @@ const cleanParkData = (parkInfo) => {
     return cleanedData[0]
 }
 
-// const checkParkBasedOnUrl = () => {
-//     if (window.location.href.indexOf('arch') > -1) {
-//         getInfo('arch')
-//         console.log('working?')
-//     } else if (window.location.href.indexOf('brca') > -1) {
-//         getInfo('brca')
-//     } else if (window.location.href.indexOf('cany') > -1) {
-//         getInfo('cany')
-//     } else if (window.location.href.indexOf('care') > -1) {
-//         getInfo('care')
-//     } else if (window.location.href.indexOf('zion') > -1) {
-//         getInfo('zion')
-//     }
-// }
-
 export { cleanParkData}

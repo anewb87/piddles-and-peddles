@@ -1,36 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { getParkInfo } from '../../apiCalls';
 import './ParkFacts.scss'
 
-const ParkFacts = ({ info, code, getInfo }) => {
+class ParkFacts extends Component {
 
-    const checkParkBasedOnUrl = () => {
-        if (window.location.href.indexOf('arch') > -1) {
-            getInfo('arch')
-            console.log('working in Park Facts?')
-        } else if (window.location.href.indexOf('brca') > -1) {
-            getInfo('brca')
-        } else if (window.location.href.indexOf('cany') > -1) {
-            getInfo('cany')
-        } else if (window.location.href.indexOf('care') > -1) {
-            getInfo('care')
-        } else if (window.location.href.indexOf('zion') > -1) {
-            getInfo('zion')
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedParkCode: props.parkName,
+            currentPark: {},
+            parkToilets: [],
+            error: '',
         }
     }
 
-    window.onload = checkParkBasedOnUrl;
+    componentDidMount() {
+        getParkInfo(this.state.selectedParkCode)
+            .then(cleanedData => this.setState({ currentPark: cleanedData }))
+            .catch(error => this.setState({ error: error }))
+    }
 
-    return (
-        <section>
-            <Link to='/'>
-                <button>Home</button>
-            </Link>
-            <h1>{info.name} General Info</h1>
-            <h2></h2>
-
-        </section>
-    )
+    render() {
+        
+        const entranceFee = this.state.currentPark.entranceFee ? this.state.currentPark.entranceFee : {}
+        return (
+            <>
+                <Link to='/'>
+                    <button>Home</button>
+                </Link>
+                    <Link to={`/${this.state.selectedParkCode}/park/`}>
+                        <button>Back to Park</button>
+                    </Link>
+                <h1>{this.state.currentPark.name} General Info (ParkFacts Component)</h1>
+                <p>Admission on a bike: ${entranceFee.cost}</p>
+                <p>{entranceFee.description}</p>
+                <p>{entranceFee.title}</p>
+                <p>{this.state.currentPark.operatingHours}</p>
+                <p>{this.state.currentPark.weather}</p>
+                
+                <p><a href={this.state.currentPark.npsLink}>Official {this.state.currentPark.name} National Park Service Website</a></p>
+    
+            </>
+        )
+    }
 }
 
 export default ParkFacts
