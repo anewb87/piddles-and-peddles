@@ -6,6 +6,11 @@ const getParkInfo = (name) => {
         .then(data => cleanParkData(data))
 }
 
+const getToiletInfo = (name) => {
+    return fetch(`https://piddles-api.herokuapp.com/api/v1/${name}`)
+        .then(response => checkResponse(response))
+}
+
 const checkResponse = (response) => {
     if(!response.ok) {
         throw new Error(`Error`)
@@ -14,4 +19,4 @@ const checkResponse = (response) => {
     }
 }
 
-export { getParkInfo }
+export { getParkInfo, getToiletInfo }
