@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './Home.scss';
 
-const Home = ({ setParkCode }) => {
+const Home = ({ getInfo }) => {
 
     return (
         <>
@@ -12,19 +12,19 @@ const Home = ({ setParkCode }) => {
                 <button>Toilet Talk</button>
             </Link>
             <Link to='arch/park'>
-                <button onClick={() => setParkCode('arch')}>Arches</button>
+                <button >Arches</button>
             </Link>
             <Link to='brca/park'>
-                <button onClick={() => setParkCode('brca')}>Bryce</button>
+                <button onClick={() => getInfo('brca')}>Bryce</button>
             </Link>
             <Link to='cany/park'>
-                <button onClick={() => setParkCode('cany')}>Canyonlands</button>
+                <button onClick={() => getInfo('cany')}>Canyonlands</button>
             </Link>
             <Link to='care/park'>
-                <button onClick={() => setParkCode('care')}>Capitol Reef</button>
+                <button onClick={() => getInfo('care')}>Capitol Reef</button>
             </Link>
             <Link to='zion/park'>
-                <button onClick={() => setParkCode('zion')}>Zion</button>
+                <button onClick={() => getInfo('zion')}>Zion</button>
             </Link>
         </>
     )

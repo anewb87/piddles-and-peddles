@@ -21,7 +21,7 @@ class App extends Component {
     }
   }
 
-  setParkCode = (code) => {
+  implementParkInfo = (code) => {
     getParkInfo(code)
       .then(cleanedData => this.setState({ currentPark: cleanedData, selectedParkCode: code}))
       .catch(error => this.setState({ error: error }))
@@ -31,12 +31,12 @@ class App extends Component {
     return (
       <main className = 'app'>
         <Switch>
-          <Route exact path='/' render={() => <Home setParkCode={this.setParkCode}/>} />
+          <Route exact path='/' render={() => <Home getInfo={this.implementParkInfo}/>} />
           <Route exact path='/toilets' render={() => <ToiletTypes/>} />
           <Route exact path='/:parkroute/park' render={() => {
-            return <Park info={this.state.currentPark} code={this.state.selectedParkCode} getInfo={this.setParkCode}/>
+            return <Park info={this.state.currentPark} code={this.state.selectedParkCode} getInfo={this.implementParkInfo}/>
           }}/>
-          <Route exact path='/:parkroute/park/info' render={() => <ParkFacts/>} />
+          <Route exact path='/:parkroute/park/info' render={() => <ParkFacts info={this.state.currentPark} code={this.state.selectedParkCode} getInfo={this.implementParkInfo}/>} />
           <Route exact path='/:parkroute/park/potties' render={() => <ParkToilets />} />
           <Route exact path='/error' render={() => <Error/>} />
           <Redirect to='/error'/>
