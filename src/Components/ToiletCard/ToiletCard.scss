@@ -1,5 +1,16 @@
+@import '../../General\ Styles/_variables.scss';
+
 .card {
     text-align: center;
-    border: 5px pink solid;
+    font-weight: 800;
+    background-color: $red;
+    color: $white;
+    margin: 1em;
+    // border: 5px pink solid;
     padding: 1em;
+}
+
+h2 {
+    margin-bottom: .5em;
+    font-size: 1.2em;
 }

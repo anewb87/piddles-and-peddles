@@ -88,7 +88,6 @@ class ParkToilets extends Component {
             </section>
         )
     }
-
 }
 
 export default ParkToilets
