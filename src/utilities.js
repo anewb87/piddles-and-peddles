@@ -15,4 +15,4 @@ const cleanParkData = (parkInfo) => {
     return cleanedData[0]
 }
 
-export { cleanParkData }
+export { cleanParkData}

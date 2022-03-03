@@ -4,6 +4,7 @@ import Error from '../Error/Error';
 import { getParkInfo } from '../../apiCalls';
 import './Park.scss';
 
+
 class Park extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +13,6 @@ class Park extends Component {
             currentPark: {},
             parkToilets: [],
             error: '',
-            thing: 'hello'
         }
     }
 
@@ -46,3 +46,44 @@ class Park extends Component {
 }
 
 export default Park
+
+// const Park = ({ info, code, getInfo }) => {
+
+//     // const checkParkBasedOnUrl = () => {
+//     //     if (window.location.href.indexOf('arch') > -1) {
+//     //         getInfo('arch')
+//     //         console.log('working?')
+//     //     } else if (window.location.href.indexOf('brca') > -1) {
+//     //         getInfo('brca')
+//     //     } else if (window.location.href.indexOf('cany') > -1) {
+//     //         getInfo('cany')
+//     //     } else if (window.location.href.indexOf('care') > -1) {
+//     //         getInfo('care')
+//     //     } else if (window.location.href.indexOf('zion') > -1) {
+//     //         getInfo('zion')
+//     //     } 
+//     // }
+
+//     // window.onload = checkParkBasedOnUrl;
+
+        
+
+//     useEffect(() => {
+//         getParkInfo(code)
+//             .then(cleanedData => this.setState({ currentPark: cleanedData, selectedParkCode: code }))
+//             .catch(error => this.setState({ error: error }))
+//     })
+
+//      return (
+//         <>
+//             <h1>{info.name} (Park Component)</h1>
+//             <h2>{info.description}</h2>
+//             <Link to={`/${code}/park/info`}>
+//                 <button>Park Info</button>
+//             </Link>
+//             <Link to={`/${code}/park/potties`}>
+//                 <button>Park Potties</button>
+//             </Link>
+//         </>
+//     )
+// }
