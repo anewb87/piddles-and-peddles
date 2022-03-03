@@ -1,0 +1,59 @@
+@import '../../General\ Styles/_variables.scss';
+
+.info-title {
+    font-size: 6em;
+}
+
+.gen-page {
+    background-color: $navy;
+    width: 100vw;
+    height: 100vh;
+    color: $yellow;
+}
+
+.flex {
+    display: flex;
+}
+
+.info-holder {
+    border: 5px $white solid;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1.2em;
+    margin-left: 1em;
+    margin-right: 1.5em;
+    font-weight: 300;
+    color: $white;
+    line-height: 1.1;
+}
+
+.info-bite {
+    margin-bottom: 1em;
+}
+
+.category {
+    font-weight: 700;
+}
+
+.orange {
+    color: $orange
+}
+
+.yellow {
+    color: $yellow;
+}
+
+.light-yellow {
+    color: $light-yellow;
+}
+
+.lightest-yellow {
+    color: $lightest-yellow;
+}
+
+.npsLink {
+    color: $white;
+    background-color: $blue;
+    padding: .3em;
+    border-radius: 20px;
+}
