@@ -19,12 +19,6 @@
 
 }
 
-// .extra-toilet-title {
-//     text-align: left;
-// }
-
-
-
 .mighty-title {
     font-size: 5em;
     align-self: end;
@@ -38,3 +32,32 @@
     margin: 2em;
 }
 
+@media screen and (max-width: 1350px) {
+    .mighty-five {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-gap: 0;
+    }
+    .mighty-title {
+        font-size: 4em;
+        text-align: center
+    }
+    .mighty-info {
+        margin: 2em;
+    }
+    .park-images {
+    width: 60vw;
+    height: 100%;
+    margin: .5em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .mighty-title {
+        font-size: 3em
+    }
+    .mighty-info {
+        font-size: 1.2em;
+    }
+}
