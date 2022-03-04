@@ -8,7 +8,7 @@ import zion from '../../Assets/zion.jpg';
 import bike from '../../Assets/bike.png'
 import './Home.scss';
 
-const Home = () => {
+const Home = (props) => {
 
     const linkStyle = {
         // textAlign: 'center',
@@ -27,19 +27,19 @@ const Home = () => {
                     <img className='bike' src={bike} alt='bike logo with toilet paper back wheel'/>
                 </div>
                 <Link to='arch/park'>
-                    <img className='park-images' src={arches} alt='Picture of Arches National Park that is a link to take you to Arches Main Page'/>
+                    <img className='park-images' src={arches} alt='Picture of Arches National Park that is a link to take you to Arches Main Page' onClick={(event) => {props.handleClick(event)}} id='arch'/>
                 </Link>
                 <Link to='brca/park'>
-                    <img className='park-images' src={bryce} alt='Picture of Bryce Canyon National Park that is a link to take you to Bryce Main Page' />
+                    <img className='park-images' src={bryce} alt='Picture of Bryce Canyon National Park that is a link to take you to Bryce Main Page' onClick={(event) => {props.handleClick(event)}} id='brca' />
                 </Link>
                 <Link to='cany/park'>
-                    <img className='park-images' src={canyon} alt='Picture of Canyonlands National Park that is a link to take you to Canyonlands Main Page' />
+                    <img className='park-images' src={canyon} alt='Picture of Canyonlands National Park that is a link to take you to Canyonlands Main Page' onClick={(event) => {props.handleClick(event)}} id='cany' />
                 </Link>
                 <Link to='care/park'>
-                    <img className='park-images' src={capitol} alt='Picture of Capitol Reef National Park that is a link to take you to Capitol Reef Main Page' />
+                    <img className='park-images' src={capitol} alt='Picture of Capitol Reef National Park that is a link to take you to Capitol Reef Main Page' onClick={(event) => {props.handleClick(event)}} id='care' />
                 </Link>
                 <Link to='zion/park'>
-                    <img className='park-images' src={zion} alt='Picture of Zion National Park that is a link to take you to Zion Main Page' />
+                    <img className='park-images' src={zion} alt='Picture of Zion National Park that is a link to take you to Zion Main Page' onClick={(event) => {props.handleClick(event)}} id='zion' />
                 </Link>
             </section>
         </section>
