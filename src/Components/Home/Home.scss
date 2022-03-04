@@ -1,0 +1,86 @@
+@import '../../General\ Styles/_variables.scss';
+
+.home-page {
+    background-color: black;
+    color: $white;
+}
+
+.mighty-five {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    grid-gap: 5em 0;
+}
+
+.mighty-info {
+    font-size: 1.4em;
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+.mighty-title {
+    font-size: 4.6em;
+    align-self: end;
+    margin-left: .2em;
+}
+
+a:hover {
+    transform: scale(1.1);
+    transition: 0.3s all;
+}
+
+.intro-box {
+    margin-top: 1em;
+}
+
+// .toilet-link {
+//     &:hover {
+//         transform: scale(1.2);
+//         transition: 0.3s all;
+//     }
+//     &:focus {
+//         transform: scale(1.2);
+//         transition: 0.3s all;
+//     }
+// }
+
+.bike {
+    width: 5em;
+}
+
+.park-images {
+    width: 43vw;
+    height: 100%;
+    margin: 2em;
+}
+
+@media screen and (max-width: 1350px) {
+    .mighty-five {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-gap: 0;
+    }
+    .mighty-title {
+        font-size: 4em;
+        text-align: center
+    }
+    .mighty-info {
+        margin: 2em;
+    }
+    .park-images {
+    width: 60vw;
+    height: 100%;
+    margin: .5em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .mighty-title {
+        font-size: 3em
+    }
+    .mighty-info {
+        font-size: 1.2em;
+    }
+}
