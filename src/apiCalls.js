@@ -5,9 +5,14 @@ const getParkInfo = (name) => {
         .then(response => checkResponse(response))
         .then(data => cleanParkData(data))
 }
+//old way, individual 
+// const getToiletInfo = (name) => {
+//     return fetch(`https://piddles-api.herokuapp.com/api/v1/${name}`)
+//         .then(response => checkResponse(response))
+// }
 
 const getToiletInfo = (name) => {
-    return fetch(`https://piddles-api.herokuapp.com/api/v1/${name}`)
+    return fetch(`https://piddles-api.herokuapp.com/api/v1/toilets/${name}`)
         .then(response => checkResponse(response))
 }
 

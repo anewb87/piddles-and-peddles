@@ -11,7 +11,10 @@ class ParkToilets extends Component {
         this.state = {
             selectedParkCode: props.parkName,
             parkToilets: [],
-            map: ''
+            isSafe:[],
+            isUnsafe: [],
+            map: '',
+            error: ''
         }
     }
 
@@ -24,7 +27,6 @@ class ParkToilets extends Component {
 
     determinePark() {
         let parkName
-
         if (this.state.selectedParkCode === 'arch') {
             parkName = 'Arches'
         } else if (this.state.selectedParkCode === 'brca') {
@@ -36,9 +38,23 @@ class ParkToilets extends Component {
         } else if (this.state.selectedParkCode === 'zion') {
             parkName = 'Zion'
         }
-
         return parkName
     }
+
+    addToSafe = (toilet) => {
+        console.log('toilet', toilet)
+        console.log('state', this.state.isSafe)
+       const match = this.state.isSafe.find(item => item.id === toilet.id)
+
+        if (!match) {
+            this.setState({ isSafe: [...this.state.isSafe, toilet] })
+        }
+        console.log('this state', this.state.isSafe)
+    }
+
+    // addToUnsafe = (toilet) => {
+    //     this.setState({ isUnsafe: [...this.state.isUnsafe, toilet] })
+    // }
 
     createToiletCards = () => {
         const toiletCards = this.state.parkToilets.map(toilet => {
@@ -49,6 +65,9 @@ class ParkToilets extends Component {
                     location={toilet.location}
                     region={toilet.region}
                     type={toilet.type}
+                    addToSafe={this.addToSafe}
+                    addToUnsafe={this.addToUnsafe}
+                    isSafe={this.state.isSafe}
                 />
             )
         })
