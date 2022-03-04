@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Error from '../Error/Error';
+import { Route, Link } from 'react-router-dom';
 import { getParkInfo } from '../../apiCalls';
+import Error from '../Error/Error';
+import ParkFacts from '../ParkFacts/ParkFacts';
 import './Park.scss';
 
 
@@ -10,15 +11,15 @@ class Park extends Component {
         super(props);
         this.state = {
             selectedParkCode: props.parkName,
-            currentPark: {},
-            parkToilets: [],
+            // currentPark: {},
+            // parkToilets: [],
             error: '',
         }
     }
 
     componentDidMount() {
         getParkInfo(this.state.selectedParkCode)
-            .then(cleanedData => this.setState({ currentPark: cleanedData }))
+            .then(cleanedData => this.props.getInfo(cleanedData))
             .catch(error => this.setState({ error: error }))
     }
 
@@ -46,7 +47,7 @@ class Park extends Component {
     }
 
     render() {
-        const parkImage = this.state.currentPark.images ? this.state.currentPark.images[1] : {}
+        const parkImage = this.props.currentPark.images ? this.props.currentPark.images[1] : {}
         const pageStyle = {
             backgroundImage: `url(${parkImage.url})`,
             backgroundPosition: 'center',
@@ -60,7 +61,7 @@ class Park extends Component {
         } else {
             return (
                 <section style={pageStyle} className='park-overview-page'>
-                    <h1 className='park-page-title'>{this.state.currentPark.name}</h1>
+                    <h1 className='park-page-title'>{this.props.currentPark.name}</h1>
                     <div className='link-container'>
                         <Link to={`/${this.state.selectedParkCode}/park/info`}>
                             <button className='toilets-info-btns'>Park Info</button>
@@ -69,6 +70,11 @@ class Park extends Component {
                             <button className='toilets-info-btns'>Park Potties</button>
                         </Link>
                     </div>
+
+                    {/* <Route path={`/${this.state.selectedParkCode}/park/info`} component={ParkFacts} /> */}
+
+                    
+
                 </section>
             )
         }

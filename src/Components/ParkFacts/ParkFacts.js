@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getParkInfo } from '../../apiCalls';
+// import { getParkInfo } from '../../apiCalls';
 import './ParkFacts.scss'
 
 class ParkFacts extends Component {
@@ -9,31 +9,31 @@ class ParkFacts extends Component {
         super(props);
         this.state = {
             selectedParkCode: props.parkName,
-            currentPark: {},
+            // currentPark: {},
             // parkToilets: [],
             error: '',
         }
     }
 
-    componentDidMount() {
-        getParkInfo(this.state.selectedParkCode)
-            .then(cleanedData => this.setState({ currentPark: cleanedData }))
-            .catch(error => this.setState({ error: error }))
-    }
+    // componentDidMount() {
+    //     getParkInfo(this.state.selectedParkCode)
+    //         .then(cleanedData => this.setState({ currentPark: cleanedData }))
+    //         .catch(error => this.setState({ error: error }))
+    // }
 
     render() {
         
-        const entranceFee = this.state.currentPark.entranceFee ? this.state.currentPark.entranceFee : {}
+        const entranceFee = this.props.currentPark.entranceFee ? this.props.currentPark.entranceFee : {}
         return (
             <section className='gen-page'>
                 <Link to='/'>
                     <button>Home</button>
                 </Link>
-                <Link to={`/${this.state.selectedParkCode}/park/`}>
+                <Link to={`/${this.props.parkName}/park/`}>
                     <button>Back to Park</button>
                 </Link>
                 <div className='flex'>
-                    <h1 className='info-title'>{this.state.currentPark.name} General Info</h1>
+                    <h1 className='info-title'>{this.props.currentPark.name} General Info</h1>
                     <section className='info-holder'>
                         {/* <section className='flex'> */}
                             <div className='info-bite'>
@@ -44,14 +44,14 @@ class ParkFacts extends Component {
                             </div>
                             <div className='info-bite'>
                                 <h2 className='category light-yellow'>OPERATING HOURS</h2>
-                                <p className='light-yellow'>{this.state.currentPark.operatingHours}</p>
+                                <p className='light-yellow'>{this.props.currentPark.operatingHours}</p>
                             </div>
                         {/* </section> */}
                         <div className='info-bite'>
                             <h2 className='category lightest-yellow'>WEATHER</h2>
-                            <p className='lightest-yellow'>{this.state.currentPark.weather}</p>
+                            <p className='lightest-yellow'>{this.props.currentPark.weather}</p>
                         </div>
-                        <p><a className='npsLink category' href={this.state.currentPark.npsLink}>Visit the Official NPS Website</a></p>
+                        <p><a className='npsLink category' href={this.props.currentPark.npsLink}>Visit the Official NPS Website</a></p>
                     </section>
                 </div>
             </section>

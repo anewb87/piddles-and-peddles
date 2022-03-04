@@ -11,30 +11,52 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      selectedParkCode: '',
+      // selectedParkCode: '',
       currentPark: {},
       parkToilets: [],
       error: '',
     }
   }
 
+  getInfoFromPark = (parkData) => {
+    this.setState({ currentPark: parkData })
+  }
+
+  // render() {
+  //   return (
+  //     <main className = 'app'>
+  //       <Switch>
+  //         <Route exact path='/' render={() => <Home getInfo={this.implementParkInfo}/>} />
+  //         <Route exact path='/toilets' render={() => <ToiletTypes/>} />
+  //         <Route exact path='/:parkroute/park' render={({ match }) => {
+  //           return <Park parkName={match.params.parkroute} />
+  //         }}/>
+  //         <Route exact path='/:parkroute/park/info' render={({ match }) => <ParkFacts parkName={match.params.parkroute} />} />
+  //         <Route exact path='/:parkroute/park/potties' render={( { match } ) => <ParkToilets parkName={match.params.parkroute}/>} />
+  //         <Route exact path='/error' render={() => <Error/>} />
+  //         <Redirect to='/error'/>
+  //       </Switch>
+  //     </main>
+  //   )
+  // }
+
   render() {
     return (
-      <main className = 'app'>
+      <main className='app'>
         <Switch>
-          <Route exact path='/' render={() => <Home getInfo={this.implementParkInfo}/>} />
-          <Route exact path='/toilets' render={() => <ToiletTypes/>} />
+          <Route exact path='/' render={() => <Home getInfo={this.implementParkInfo} />} />
+          <Route exact path='/toilets' render={() => <ToiletTypes />} />
           <Route exact path='/:parkroute/park' render={({ match }) => {
-            return <Park parkName={match.params.parkroute} />
-          }}/>
-          <Route exact path='/:parkroute/park/info' render={({ match }) => <ParkFacts parkName={match.params.parkroute} />} />
-          <Route exact path='/:parkroute/park/potties' render={( { match } ) => <ParkToilets parkName={match.params.parkroute}/>} />
-          <Route exact path='/error' render={() => <Error/>} />
-          <Redirect to='/error'/>
+            return <Park parkName={match.params.parkroute} getInfo={this.getInfoFromPark} currentPark={this.state.currentPark}/> }} />
+          <Route exact path='/:parkroute/park/info' render={({ match }) => <ParkFacts parkName={match.params.parkroute} currentPark={this.state.currentPark} />} />
+          <Route exact path='/:parkroute/park/potties' render={({ match }) => <ParkToilets parkName={match.params.parkroute} />} />
+          <Route exact path='/error' render={() => <Error />} />
+          <Redirect to='/error' />
         </Switch>
       </main>
     )
   }
+
 }
 
 export default App;
