@@ -59,14 +59,14 @@
     border-radius: 20px;
 
     //this isn't working
-    &:hover {
-        transform: scale(1.2);
-        transition: 0.3s all;
-    }
-    &:focus {
-        transform: scale(1.2);
-        transition: 0.3s all;
-    }
+    // &:hover {
+    //     transform: scale(1.2);
+    //     transition: 0.3s all;
+    // }
+    // &:focus {
+    //     transform: scale(1.2);
+    //     transition: 0.3s all;
+    // }
 }
 
 @media screen and (max-width: 1000px) {
