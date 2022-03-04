@@ -1,10 +1,40 @@
 @import '../../General\ Styles/_variables.scss';
 
 .home-page {
-    background-color: $navy;
+    background-color: black;
+    color: $white;
+}
+
+.mighty-five {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    grid-gap: 5em 0;
+}
+
+.mighty-info {
+    font-size: 1.5em;
+    margin-left: 2em;
+    text-align: center;
+
+}
+
+// .extra-toilet-title {
+//     text-align: left;
+// }
+
+
+
+.mighty-title {
+    font-size: 5em;
+    align-self: end;
+    // justify-self: end;
+    margin-left: .2em;
 }
 
 .park-images {
-    width: 50vw;
-    height: 100%
+    width: 43vw;
+    height: 100%;
+    margin: 2em;
 }
+
