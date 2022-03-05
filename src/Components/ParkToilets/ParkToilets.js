@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getToiletInfo } from '../../apiCalls';
 import ToiletCard from '../ToiletCard/ToiletCard';
+import loading from '../../Assets/loading.gif';
 import './ParkToilets.scss'
 
 class ParkToilets extends Component {
@@ -14,6 +15,7 @@ class ParkToilets extends Component {
             isSafe:[],
             isUnsafe: [],
             map: '',
+            isLoading: true,
             error: ''
         }
     }
@@ -23,6 +25,8 @@ class ParkToilets extends Component {
             .then(data => this.setState({ parkToilets: data.toilets, map: data.map }))
             .then(this.createToiletCards())
             .catch(error => this.setState({ error: error }))
+        
+        this.setState({ isLoading: false })
     }
 
     determinePark() {
@@ -42,8 +46,6 @@ class ParkToilets extends Component {
     }
 
     addToSafe = (toilet) => {
-        console.log('toilet', toilet)
-        console.log('state', this.state.isSafe)
        const match = this.state.isSafe.find(item => item.id === toilet.id)
 
         if (!match) {
@@ -76,26 +78,30 @@ class ParkToilets extends Component {
     }
 
     render() {
-
-        return (
-            <section className='park-toilet-page'>
-                <h1 className='toilet-title'>{this.determinePark()} Toilet Locator</h1>
-                <Link to='/'>
-                    <button>Home</button>
-                </Link>
-                <Link to={`/${this.state.selectedParkCode}/park/`}>
-                    <button>Back to Park</button>
-                </Link>
-                <section className='info-container'>
-                    <div>
-                        <img className='map' src={this.state.map} alt={`Map of ${this.determinePark()} National Park Toilets`} />
-                    </div>
-                    <div className='toilet-cards'>
-                        <div>{this.createToiletCards()}</div>
-                    </div>
+        if (this.state.isLoading) {
+            return <img src={loading} width="480" height="480" frameBorder="0" />
+        } else {
+            return (
+                <section className='park-toilet-page'>
+                    <div>{loading}</div>
+                    <h1 className='toilet-title'>{this.determinePark()} Toilet Locator</h1>
+                    <Link to='/'>
+                        <button>Home</button>
+                    </Link>
+                    <Link to={`/${this.state.selectedParkCode}/park/`}>
+                        <button>Back to Park</button>
+                    </Link>
+                    <section className='info-container'>
+                        <div>
+                            <img className='map' src={this.state.map} alt={`Map of ${this.determinePark()} National Park Toilets`} />
+                        </div>
+                        <div className='toilet-cards'>
+                            <div>{this.createToiletCards()}</div>
+                        </div>
+                    </section>
                 </section>
-            </section>
-        )
+            )
+        }
     }
 }
 
