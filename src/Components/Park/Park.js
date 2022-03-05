@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { getParkInfo } from '../../apiCalls';
 import ParkFacts from '../ParkFacts/ParkFacts';
 import Error from '../Error/Error';
-import { getParkInfo } from '../../apiCalls';
 import './Park.scss';
 
 
