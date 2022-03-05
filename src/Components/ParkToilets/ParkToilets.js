@@ -19,7 +19,9 @@ class ParkToilets extends Component {
     }
 
     componentDidMount() {
-        getToiletInfo(this.state.selectedParkCode)
+        console.log('POO PROPS', this.props.parkName)
+        console.log(this.state.selectedParkCode)
+        getToiletInfo(this.props.parkName)
             .then(data => this.setState({ parkToilets: data.toilets, map: data.map }))
             .then(this.createToiletCards())
             .catch(error => this.setState({ error: error }))

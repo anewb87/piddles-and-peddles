@@ -17,14 +17,15 @@ const Park = (props) => {
     if (props.error) {
         return <Error />
     } else {
+        console.log('IN PARK', props)
         return (
             <section style={pageStyle} className='park-overview-page'>
                 <h1 className='park-page-title'>{props.currentPark.name}</h1>
                 <div className='link-container'>
-                    <Link to={`/${props.parkName}/park/info`}>
+                    <Link to={`/${props.currentPark.parkCode}/park/info`}>
                         <button className='toilets-info-btns'>Park Info</button>
                     </Link>
-                    <Link to={`/${props.parkName}/park/potties`}>
+                    <Link to={`/${props.currentPark.parkCode}/park/potties`}>
                         <button className='toilets-info-btns'>Park Potties</button>
                     </Link>
                 </div>

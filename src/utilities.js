@@ -2,6 +2,7 @@ const cleanParkData = (parkInfo) => {
     const cleanedData = parkInfo.data.map(park => {
         return {
             id: park.id,
+            parkCode: park.parkCode,
             name: park.fullName,
             description: park.description,
             entranceFee: park.entranceFees[2],
