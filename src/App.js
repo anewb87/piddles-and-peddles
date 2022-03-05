@@ -12,7 +12,7 @@ const App = () => {
     <main className= 'app'>
       <Switch>
         <Route exact path='/' render={() => <Home />} />
-        <Route exact path='/toilets' render={() => <ToiletTypes />} />
+        <Route exact path='/toilettypes' render={() => <ToiletTypes />} />
         <Route exact path='/:parkroute/park' render={({ match }) => {
           return <Park parkName={match.params.parkroute} />
         }}/>
