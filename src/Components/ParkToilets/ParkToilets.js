@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getToiletInfo } from '../../apiCalls';
 import ToiletCard from '../ToiletCard/ToiletCard';
+import { rateToilet } from '../../apiCalls';
 import './ParkToilets.scss'
 
 class ParkToilets extends Component {
@@ -12,6 +13,7 @@ class ParkToilets extends Component {
             selectedParkCode: props.parkName,
             parkToilets: [],
             isSafe:[],
+            currentSafetyCard: {},
             // isUnsafe: [],
             map: '',
             isLoading: true,
@@ -44,6 +46,35 @@ class ParkToilets extends Component {
         return parkName
     }
 
+    handleChange = (event) => {
+        event.preventDefault();
+        this.setState({ currentSafetyCard: event.target.value })
+    }
+
+    postSafe = (safeToilet) => {
+
+        const match = this.state.parkToilets.find(item => item.id === safeToilet.id)
+
+        if(!this.state.isSafe.includes(match)) {
+            rateToilet(safeToilet)
+                .then(toilet => this.setState({ isSafe: [...this.state.isSafe, toilet] }))
+                .catch(error => this.setState({ error: error }))
+        }
+        
+
+        // rateToilet(safeToilet)
+        // .then(toilet => )
+    }
+
+    // createSafetyCard = (event) => {
+    //     event.preventDefault();
+    //     const newCard = {
+    //         id: Date.now(),
+    //         location:,
+    //         type: ,
+    //     }
+    // }
+
     addToSafe = (toilet) => {
        const match = this.state.parkToilets.find(item => item.id === toilet.id)
         if (!this.state.isSafe.includes(match)) {
@@ -75,7 +106,10 @@ class ParkToilets extends Component {
                     location={toilet.location}
                     region={toilet.region}
                     type={toilet.type}
-                    addToSafe={this.addToSafe}
+                    // handleChange={this.handleChange}
+                    // addToSafe={this.addToSafe}
+                    post={this.postSafe}
+
                     // addToUnsafe={this.addToUnsafe}
                     isSafe={this.state.isSafe}
                     toilet={toilet}
@@ -89,7 +123,10 @@ class ParkToilets extends Component {
     render() {
         console.log('is safe', this.state.isSafe)
         if (this.state.isLoading) {
-            return <iframe src="https://giphy.com/embed/N256GFy1u6M6Y" width="480" height="319" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            return <section>
+                <h1>LOADING...</h1>
+                <iframe src="https://giphy.com/embed/N256GFy1u6M6Y" width="480" height="319" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
+                </section>
         } else {
             return (
                 <section className='park-toilet-page'>
