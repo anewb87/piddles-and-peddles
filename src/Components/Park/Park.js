@@ -26,7 +26,7 @@ class Park extends Component {
         const pageStyle = {
             backgroundImage: `url(${parkImage.url})`,
             backgroundPosition: 'center',
-            backgrounRepeat: 'no-repeat',
+            // backgrounRepeat: 'repeat-y',
             backgroundSize: 'cover',
             height: '100vh'
         }
@@ -46,7 +46,7 @@ class Park extends Component {
                         <Link to={`/${this.state.selectedParkCode}/park/potties`}>
                             <button className='toilets-info-btn'>Park Potties</button>
                         </Link>
-                        <a className='toilets-info-btn nps-link' href={this.state.currentPark.npsLink}>Official NPS Website</a>
+                        <a className='toilets-info-btn nps-link' href={this.state.currentPark.npsLink}>NPS Website</a>
                     </div>
                     <p className='description'>{this.state.currentPark.description}</p>
                     <section className='info-holder'>
