@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getToiletInfo } from '../../apiCalls';
 import ToiletCard from '../ToiletCard/ToiletCard';
 import { rateToilet } from '../../apiCalls';
+import PropTypes from 'prop-types';
 import './ParkToilets.scss'
 
 class ParkToilets extends Component {
@@ -13,6 +14,7 @@ class ParkToilets extends Component {
             selectedParkCode: props.parkName,
             parkToilets: [],
             isSafe:[],
+            isToggled: false,
             // isUnsafe: [],
             map: '',
             isLoading: true,
@@ -123,3 +125,7 @@ class ParkToilets extends Component {
 }
 
 export default ParkToilets
+
+ParkToilets.propTypes = {
+    parkName: PropTypes.string.isRequired,
+}

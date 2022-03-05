@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './Toggle.scss'
 
 const Toggle = ({ isToggled, onToggle }) => {
@@ -12,3 +13,8 @@ const Toggle = ({ isToggled, onToggle }) => {
 }
 
 export default Toggle
+
+Toggle.propTypes = {
+    isToggled: PropTypes.bool,
+    onToggle: PropTypes.func,
+}
