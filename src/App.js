@@ -5,6 +5,7 @@ import ToiletTypes from './Components/ToiletTypes/ToiletTypes'
 import Park from './Components/Park/Park';
 import ParkToilets from './Components/ParkToilets/ParkToilets';
 import Error from './Components/Error/Error';
+import ToiletSafetyReviews from './Components/ToiletSafetyReviews/ToiletSafetyReviews';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         }}/>
         <Route exact path='/:parkroute/park/potties' render={( { match } ) => <ParkToilets parkName={match.params.parkroute}/>} />
         <Route exact path='/error' render={() => <Error/>} />
+        <Route exact path='/mytoiletratings' render={() => <ToiletSafetyReviews/> } />
         <Redirect to='/error'/>
       </Switch>
     </main>

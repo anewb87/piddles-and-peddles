@@ -5,7 +5,6 @@ import ParkFacts from '../ParkFacts/ParkFacts';
 import Error from '../Error/Error';
 import './Park.scss';
 
-
 class Park extends Component {
     constructor(props) {
         super(props);
