@@ -37,16 +37,35 @@ class Park extends Component {
         } else {
             return (
                 <section style={pageStyle} className='park-overview-page'>
-                    <h1 className='park-page-title'>{this.state.currentPark.name}</h1>
+                    <Link to='/'>
+                        <button>Home</button>
+                    </Link>
+                    <h1 className='park-page-title info-title'>{this.state.currentPark.name}</h1>
                     <div className='link-container'>
-                        <Link to={`/${this.state.selectedParkCode}/park/info`}>
-                            <button className='toilets-info-btns'>Park Info</button>
-                        </Link>
                         <Link to={`/${this.state.selectedParkCode}/park/potties`}>
-                            <button className='toilets-info-btns'>Park Potties</button>
+                            <button className='toilets-info-btn'>Park Potties</button>
                         </Link>
+                        <p><a className='toilets-info-btn' href={this.state.currentPark.npsLink}>Official NPS Website</a></p>
                     </div>
-                    <ParkFacts parkCode={this.state.selectedParkCode} currentPark={this.state.currentPark} />
+                    <section className='info-holder'>
+                        {/* <section className='flex'> */}
+                        <div className='info-bite'>
+                            <h2 className='category yellow'>CYCLING / NON-CAR ADMISSION</h2>
+                            <p>${this.state.currentPark.cost}</p>
+                            <p>{this.state.currentPark.description}</p>
+                            <p>${this.state.currentPark.cost} {this.state.currentPark.title}</p>
+                        </div>
+                        <div className='info-bite'>
+                            <h2 className='category'>OPERATING HOURS</h2>
+                            <p>{this.state.currentPark.operatingHours}</p>
+                        </div>
+                        {/* </section> */}
+                        <div className='info-bite'>
+                            <h2 className='category lightest-yellow'>WEATHER</h2>
+                            <p>{this.state.currentPark.weather}</p>
+                        </div>
+                    </section>
+                    {/* <ParkFacts parkCode={this.state.selectedParkCode} currentPark={this.state.currentPark} /> */}
                 </section>
             )
         }

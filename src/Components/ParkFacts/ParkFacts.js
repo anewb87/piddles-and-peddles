@@ -63,19 +63,13 @@ const ParkFacts = ({ parkCode, currentPark }) => {
 
     return (
         <section className='gen-page'>
-            <Link to='/'>
-                <button>Home</button>
-            </Link>
-            <Link to={`/${parkCode}/park/`}>
-                <button>Back to Park</button>
-            </Link>
             <div className='flex'>
-                <h1 className='info-title'>{currentPark.name} General Info</h1>
+                {/* <h1 className='info-title'>{currentPark.name} General Info</h1> */}
                 <section className='info-holder'>
                     {/* <section className='flex'> */}
                     <div className='info-bite'>
                         <h2 className='category yellow'>CYCLING / NON-CAR ADMISSION</h2>
-                        {/* <p className='orange'>${entranceFee.cost}</p> */}
+                        {/* <p className='orange'>${currentPark.cost}</p> */}
                         <p className='yellow'>{currentPark.description}</p>
                         <p className='yellow'>${currentPark.cost} {currentPark.title}</p>
                     </div>
