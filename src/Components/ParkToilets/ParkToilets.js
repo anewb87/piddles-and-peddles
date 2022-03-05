@@ -46,12 +46,10 @@ class ParkToilets extends Component {
     }
 
     addToSafe = (toilet) => {
-       const match = this.state.isSafe.find(item => item.id === toilet.id)
-
-        if (!match) {
-            this.setState({ isSafe: [...this.state.isSafe, toilet] })
+       const match = this.state.parkToilets.find(item => item.id === toilet.id)
+        if (!this.state.isSafe.includes(match)) {
+            this.setState({ isSafe: [...this.state.isSafe, match] })
         }
-        console.log('this state', this.state.isSafe)
     }
 
     // addToUnsafe = (toilet) => {
@@ -68,8 +66,9 @@ class ParkToilets extends Component {
                     region={toilet.region}
                     type={toilet.type}
                     addToSafe={this.addToSafe}
-                    addToUnsafe={this.addToUnsafe}
+                    // addToUnsafe={this.addToUnsafe}
                     isSafe={this.state.isSafe}
+                    toilet={toilet}
                 />
             )
         })
@@ -78,6 +77,7 @@ class ParkToilets extends Component {
     }
 
     render() {
+        console.log('is safe', this.state.isSafe)
         if (this.state.isLoading) {
             return <img src={loading} width="480" height="480" frameBorder="0" />
         } else {
