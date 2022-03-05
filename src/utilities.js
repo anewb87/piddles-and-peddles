@@ -1,3 +1,5 @@
+import ToiletCard from "./Components/ToiletCard/ToiletCard";
+
 const cleanParkData = (parkInfo) => {
     const cleanedData = parkInfo.data.map(park => {
         return {
@@ -15,4 +17,25 @@ const cleanParkData = (parkInfo) => {
     return cleanedData[0]
 }
 
-export { cleanParkData}
+const createToiletCards = (stateArray) => {
+    const toiletCards = stateArray.map(toilet => {
+        return (
+            <ToiletCard
+                key={toilet.id}
+                id={toilet.id}
+                location={toilet.location}
+                region={toilet.region}
+                type={toilet.type}
+                post={this.postSafe}
+
+                // addToUnsafe={this.addToUnsafe}
+                isSafe={this.state.isSafe}
+                toilet={toilet}
+            />
+        )
+    })
+
+    return toiletCards
+}
+
+export { cleanParkData, createToiletCards}

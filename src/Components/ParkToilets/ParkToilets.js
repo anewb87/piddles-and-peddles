@@ -13,7 +13,6 @@ class ParkToilets extends Component {
             selectedParkCode: props.parkName,
             parkToilets: [],
             isSafe:[],
-            currentSafetyCard: {},
             // isUnsafe: [],
             map: '',
             isLoading: true,
@@ -46,11 +45,6 @@ class ParkToilets extends Component {
         return parkName
     }
 
-    // handleChange = (event) => {
-    //     event.preventDefault();
-    //     this.setState({ currentSafetyCard: event.target.value })
-    // }
-
     postSafe = (safeToilet) => {
 
         const match = this.state.parkToilets.find(item => item.id === safeToilet.id)
@@ -60,20 +54,7 @@ class ParkToilets extends Component {
                 .then(toilet => this.setState({ isSafe: [...this.state.isSafe, toilet] }))
                 .catch(error => this.setState({ error: error }))
         }
-        
-
-        // rateToilet(safeToilet)
-        // .then(toilet => )
     }
-
-    // createSafetyCard = (event) => {
-    //     event.preventDefault();
-    //     const newCard = {
-    //         id: Date.now(),
-    //         location:,
-    //         type: ,
-    //     }
-    // }
 
     addToSafe = (toilet) => {
        const match = this.state.parkToilets.find(item => item.id === toilet.id)
@@ -81,17 +62,6 @@ class ParkToilets extends Component {
             this.setState({ isSafe: [...this.state.isSafe, match] })
         }
     }
-
-    // handleSubmit = (toilet) => {
-
-    //     const newRating = this.state.parkToilets.find(item => item.id === toilet.id)
-
-    //     const newRating = {
-    //         id: Date.now(),
-    //         location: ,
-    //         type: 
-    //     }
-    // }
 
     // addToUnsafe = (toilet) => {
     //     this.setState({ isUnsafe: [...this.state.isUnsafe, toilet] })
@@ -106,7 +76,6 @@ class ParkToilets extends Component {
                     location={toilet.location}
                     region={toilet.region}
                     type={toilet.type}
-                    // handleChange={this.handleChange}
                     // addToSafe={this.addToSafe}
                     post={this.postSafe}
 
@@ -121,7 +90,6 @@ class ParkToilets extends Component {
     }
 
     render() {
-        console.log('is safe', this.state.isSafe)
         if (this.state.isLoading) {
             return <section>
                 <h1>LOADING...</h1>
