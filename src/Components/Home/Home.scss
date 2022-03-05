@@ -25,25 +25,17 @@
     margin-left: .2em;
 }
 
-a:hover {
-    transform: scale(1.1);
-    transition: 0.3s all;
+.toilet-title {
+    color: $yellow;
+}
+
+.toilet-title:hover {
+    color: blue;
 }
 
 .intro-box {
     margin-top: 1em;
 }
-
-// .toilet-link {
-//     &:hover {
-//         transform: scale(1.2);
-//         transition: 0.3s all;
-//     }
-//     &:focus {
-//         transform: scale(1.2);
-//         transition: 0.3s all;
-//     }
-// }
 
 .bike {
     width: 5em;
