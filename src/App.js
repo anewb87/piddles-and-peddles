@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Route, Switch, Redirect, NavLink, Link, Navigate } from 'react-router-dom';
+import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import ToiletTypes from './Components/ToiletTypes/ToiletTypes'
 import Park from './Components/Park/Park';
