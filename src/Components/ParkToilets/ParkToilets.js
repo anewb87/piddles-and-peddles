@@ -46,10 +46,10 @@ class ParkToilets extends Component {
         return parkName
     }
 
-    handleChange = (event) => {
-        event.preventDefault();
-        this.setState({ currentSafetyCard: event.target.value })
-    }
+    // handleChange = (event) => {
+    //     event.preventDefault();
+    //     this.setState({ currentSafetyCard: event.target.value })
+    // }
 
     postSafe = (safeToilet) => {
 
@@ -133,6 +133,9 @@ class ParkToilets extends Component {
                     <h1 className='toilet-title'>{this.determinePark()} Toilet Locator</h1>
                     <Link to='/'>
                         <button>Home</button>
+                    </Link>
+                    <Link to='/mytoiletratings'>
+                        <button>My Safe Toilets</button>
                     </Link>
                     <Link to={`/${this.state.selectedParkCode}/park/`}>
                         <button>Back to Park</button>

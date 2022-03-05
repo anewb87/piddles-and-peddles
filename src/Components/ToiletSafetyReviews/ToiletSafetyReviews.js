@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getToiletRatings } from '../../apiCalls';
+import ToiletCard from '../ToiletCard/ToiletCard';
 import Error from '../Error/Error';
 
 // import { Link } from react-r
@@ -19,6 +20,29 @@ class ToiletSafetyReviews extends Component {
         getToiletRatings()
             .then(data => this.setState({ reviewedToilets: data }))
             .catch(error => this.setState({ error: error }))
+    }
+
+    createToiletCards = () => {
+        const toiletCards = this.state.reviewedToilets.map(toilet => {
+            return (
+                <ToiletCard
+                    key={toilet.id}
+                    id={toilet.id}
+                    location={toilet.location}
+                    region={toilet.region}
+                    type={toilet.type}
+                    // handleChange={this.handleChange}
+                    // addToSafe={this.addToSafe}
+                    post={this.postSafe}
+
+                    // addToUnsafe={this.addToUnsafe}
+                    isSafe={this.state.isSafe}
+                    toilet={toilet}
+                />
+            )
+        })
+
+        return toiletCards
     }
 
     //can I use the same toilet cards? idea to be able to write in comments on this page? (patch?)
@@ -50,17 +74,17 @@ class ToiletSafetyReviews extends Component {
                 How comfortable do you feel leaving your bike while you do your dooties? Pick your park, visit a privy, and rate how safe you feel your bike was at this location.
                 <Link to='/'>Show Me the Mighty Five</Link>
                 </section>
-        // } else {
-        //     return this.createSafeToiletCards()
-        // }
+        } else {
+            return <section>{this.createToiletCards()}</section>
         }
-        
     }
 
 
     render() {
         return (
-            this.determineDisplay()
+            <section>
+                {this.determineDisplay()}
+            </section>
         )   
     }
 }
