@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getToiletInfo } from '../../apiCalls';
 import ToiletCard from '../ToiletCard/ToiletCard';
+import { rateToilet } from '../../apiCalls';
 import './ParkToilets.scss'
 
 class ParkToilets extends Component {
@@ -44,23 +45,23 @@ class ParkToilets extends Component {
         return parkName
     }
 
+    postSafe = (safeToilet) => {
+
+        const match = this.state.parkToilets.find(item => item.id === safeToilet.id)
+
+        if(!this.state.isSafe.includes(match)) {
+            rateToilet(safeToilet)
+                .then(toilet => this.setState({ isSafe: [...this.state.isSafe, toilet] }))
+                .catch(error => this.setState({ error: error }))
+        }
+    }
+
     addToSafe = (toilet) => {
        const match = this.state.parkToilets.find(item => item.id === toilet.id)
         if (!this.state.isSafe.includes(match)) {
             this.setState({ isSafe: [...this.state.isSafe, match] })
         }
     }
-
-    // handleSubmit = (toilet) => {
-
-    //     const newRating = this.state.parkToilets.find(item => item.id === toilet.id)
-
-    //     const newRating = {
-    //         id: Date.now(),
-    //         location: ,
-    //         type: 
-    //     }
-    // }
 
     // addToUnsafe = (toilet) => {
     //     this.setState({ isUnsafe: [...this.state.isUnsafe, toilet] })
@@ -75,7 +76,9 @@ class ParkToilets extends Component {
                     location={toilet.location}
                     region={toilet.region}
                     type={toilet.type}
-                    addToSafe={this.addToSafe}
+                    // addToSafe={this.addToSafe}
+                    post={this.postSafe}
+
                     // addToUnsafe={this.addToUnsafe}
                     isSafe={this.state.isSafe}
                     toilet={toilet}
@@ -87,15 +90,20 @@ class ParkToilets extends Component {
     }
 
     render() {
-        console.log('is safe', this.state.isSafe)
         if (this.state.isLoading) {
-            return <iframe src="https://giphy.com/embed/N256GFy1u6M6Y" width="480" height="319" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            return <section>
+                <h1>LOADING...</h1>
+                <iframe src="https://giphy.com/embed/N256GFy1u6M6Y" width="480" height="319" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
+                </section>
         } else {
             return (
                 <section className='park-toilet-page'>
                     <h1 className='toilet-title'>{this.determinePark()} Toilet Locator</h1>
                     <Link to='/'>
                         <button>Home</button>
+                    </Link>
+                    <Link to='/mytoiletratings'>
+                        <button>My Safe Toilets</button>
                     </Link>
                     <Link to={`/${this.state.selectedParkCode}/park/`}>
                         <button>Back to Park</button>
