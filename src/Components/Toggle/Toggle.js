@@ -1,22 +1,14 @@
 import React, {Component} from 'react';
 import './Toggle.scss'
 
-class Toggle extends Component {
+const Toggle = ({ isToggled, onToggle }) => {
 
-    constructor() {
-        super();
-        this.state = {
-        }
-    }
-
-    render() {
-        return (
-            <label className='toggle'>
-                <input type='checkbox'/>
-                <span className='slider'/>
-            </label>
-        )
-    }
+    return (
+        <label className='toggle'>
+            <input type='checkbox' checked={isToggled} onChange={onToggle} />
+            <span className='slider' />
+        </label>
+    )
 }
 
 export default Toggle

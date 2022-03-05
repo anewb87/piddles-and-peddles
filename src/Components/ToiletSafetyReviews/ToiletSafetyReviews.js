@@ -13,6 +13,7 @@ class ToiletSafetyReviews extends Component {
         super();
         this.state = {
             reviewedToilets: [],
+            isToggled: false,
             error: ''
         }
     }
@@ -21,6 +22,10 @@ class ToiletSafetyReviews extends Component {
         getToiletRatings()
             .then(data => this.setState({ reviewedToilets: data }))
             .catch(error => this.setState({ error: error }))
+    }
+
+    onToggle = () => {
+        this.setState({ isToggled: !this.state.isToggled })
     }
 
     createToiletCards = () => {
@@ -37,6 +42,8 @@ class ToiletSafetyReviews extends Component {
 
                     // addToUnsafe={this.addToUnsafe}
                     isSafe={this.state.isSafe}
+                    isToggled={this.state.isToggled}
+                    onToggle={this.onToggle}
                     toilet={toilet}
                 />
             )
