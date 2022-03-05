@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getParkInfo } from '../../apiCalls';
 import Error from '../Error/Error';
+import PropTypes from 'prop-types';
 import './Park.scss';
 
 class Park extends Component {
@@ -80,6 +81,10 @@ class Park extends Component {
 }
 
 export default Park
+
+Park.propTypes = {
+    parkName: PropTypes.string.isRequired,
+}
 
 // const Park = ({ info, code, getInfo }) => {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Toggle from '../Toggle/Toggle';
-
+import PropTypes from 'prop-types';
 import './ToiletCard.scss';
 
 const ToiletCard = ({ id, location, region, type, isSafe, isToggled, onToggle, addToSafe, toilet, post, handleChange, addToUnsafe }) => {
@@ -26,3 +26,11 @@ const ToiletCard = ({ id, location, region, type, isSafe, isToggled, onToggle, a
 }
 
 export default ToiletCard
+
+ToiletCard.propTypes = {
+    location: PropTypes.string,
+    region: PropTypes.string,
+    type: PropTypes.string,
+    isToggled: PropTypes.bool,
+    onToggle: PropTypes.func
+}
