@@ -5,7 +5,6 @@ const cleanParkData = (parkInfo) => {
             name: park.fullName,
             description: park.description,
             entranceFee: park.entranceFees[2],
-            entrancePass: park.entrancePasses,
             npsLink: park.directionsUrl,
             operatingHours: park.operatingHours[0].description,
             images: park.images,

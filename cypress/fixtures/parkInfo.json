@@ -1,0 +1,15 @@
+{
+    "description": "Visit Arches. We have all the arches.",
+    "entranceFee": {"cost": "15.00", "description": "Persons without cars", "title": "per person"},
+    "id": 22,
+    "images": [ 
+        {"altText": "pretty arch",
+        "caption": "THE Arch",
+        "credit": "Lexy Lou",
+        "title": "Prettiest Arch",
+        "url": "https://www.nps.gov/common/uploads/structured_data/3C79850F-1DD8-B71B-0BC4A88BA85DE6B0.jpg"}],
+    "name": "Arches",
+    "npsLink": "http: //www.nps.gov/arch/planyourvisit/directions.htm",
+    "operatingHours": "We never close.",
+    "weather": "Not too hot, not too cold, all you need is a light jacket."
+}
