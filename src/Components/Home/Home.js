@@ -11,7 +11,6 @@ import './Home.scss';
 const Home = () => {
 
     const linkStyle = {
-        // textAlign: 'center',
         textDecoration: 'underline',
     }
 

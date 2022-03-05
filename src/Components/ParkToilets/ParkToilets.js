@@ -13,7 +13,7 @@ class ParkToilets extends Component {
             selectedParkCode: props.parkName,
             parkToilets: [],
             isSafe:[],
-            isUnsafe: [],
+            // isUnsafe: [],
             map: '',
             isLoading: true,
             error: ''

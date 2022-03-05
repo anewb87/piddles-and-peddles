@@ -1,4 +1,3 @@
-import { cloneElement } from "react"
 import { cleanParkData } from "./utilities"
 
 const getParkInfo = (name) => {
