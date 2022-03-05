@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getToiletInfo } from '../../apiCalls';
 import ToiletCard from '../ToiletCard/ToiletCard';
-import loading from '../../Assets/loading.gif';
 import './ParkToilets.scss'
 
 class ParkToilets extends Component {
@@ -90,11 +89,10 @@ class ParkToilets extends Component {
     render() {
         console.log('is safe', this.state.isSafe)
         if (this.state.isLoading) {
-            return <img src={loading} width="480" height="480" frameBorder="0" />
+            return <iframe src="https://giphy.com/embed/N256GFy1u6M6Y" width="480" height="319" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         } else {
             return (
                 <section className='park-toilet-page'>
-                    <div>{loading}</div>
                     <h1 className='toilet-title'>{this.determinePark()} Toilet Locator</h1>
                     <Link to='/'>
                         <button>Home</button>
