@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getParkInfo } from '../../apiCalls';
-import ParkFacts from '../ParkFacts/ParkFacts';
 import Error from '../Error/Error';
 import './Park.scss';
 
@@ -27,26 +26,49 @@ class Park extends Component {
         const pageStyle = {
             backgroundImage: `url(${parkImage.url})`,
             backgroundPosition: 'center',
-            backgrounRepeat: 'no-repeat',
+            // backgrounRepeat: 'repeat-y',
             backgroundSize: 'cover',
             height: '100vh'
         }
+
+        const entranceFee = this.state.currentPark.entranceFee ? this.state.currentPark.entranceFee : {}
 
         if (this.state.error) {
             return <Error />
         } else {
             return (
                 <section style={pageStyle} className='park-overview-page'>
-                    <h1 className='park-page-title'>{this.state.currentPark.name}</h1>
+                    <Link to='/'>
+                        <button>Home</button>
+                    </Link>
+                    <h1 className='park-page-title info-title'>{this.state.currentPark.name}</h1>
                     <div className='link-container'>
-                        <Link to={`/${this.state.selectedParkCode}/park/info`}>
-                            <button className='toilets-info-btns'>Park Info</button>
-                        </Link>
                         <Link to={`/${this.state.selectedParkCode}/park/potties`}>
-                            <button className='toilets-info-btns'>Park Potties</button>
+                            <button className='toilets-info-btn'>Park Potties</button>
                         </Link>
+                        <a className='toilets-info-btn nps-link' href={this.state.currentPark.npsLink}>NPS Website</a>
                     </div>
-                    <ParkFacts parkCode={this.state.selectedParkCode} currentPark={this.state.currentPark} />
+                    <p className='description'>{this.state.currentPark.description}</p>
+                    <section className='info-holder'>
+                        {/* <section className='flex'> */}
+                        <div className='info-bite'>
+                            <h2 className='category yellow'>CYCLING / NON-CAR ADMISSION</h2>
+                            <p>${entranceFee.cost}</p>
+                            <p>{entranceFee.description}</p>
+                            {/* <p>${this.state.currentPark.cost}</p> */}
+                            {/* <p>{entranceFee.cost} {entranceFee .title}</p> */}
+                        </div>
+                        <div className='info-bite'>
+                            <h2 className='category'>OPERATING HOURS</h2>
+                            <p>{this.state.currentPark.operatingHours}</p>
+                        </div>
+                        {/* </section> */}
+                        <div className='info-bite'>
+                            <h2 className='category lightest-yellow'>WEATHER</h2>
+                            <p>{this.state.currentPark.weather}</p>
+                        </div>
+                    </section>
+                    {/* <ParkFacts parkCode={this.state.selectedParkCode} currentPark={this.state.currentPark} /> */}
                 </section>
             )
         }

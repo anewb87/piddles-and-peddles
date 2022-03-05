@@ -6,7 +6,6 @@
 @import '../Components/Home/Home.scss';
 // @import '../Components/Nav/Nav.scss';
 @import '../Components/Park/Park.scss';
-@import '../Components/ParkFacts/ParkFacts.scss';
 @import '../Components/ParkToilets/ParkToilets.scss';
 @import '../Components/ToiletCard/ToiletCard.scss';
 @import '../Components/ToiletTypes/ToiletTypes.scss';
@@ -28,8 +27,8 @@ h1 {
   font-family: 'Ultra', serif;
 }
 
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
+// a:link { text-decoration: none; }
+// a:visited { text-decoration: none; }
 // a:hover { text-decoration: none; }
 // a:active { text-decoration: none; }
 // a:focus {text-decoration: none; }
