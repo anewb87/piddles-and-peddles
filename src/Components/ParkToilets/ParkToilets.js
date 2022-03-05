@@ -52,6 +52,17 @@ class ParkToilets extends Component {
         }
     }
 
+    // handleSubmit = (toilet) => {
+
+    //     const newRating = this.state.parkToilets.find(item => item.id === toilet.id)
+
+    //     const newRating = {
+    //         id: Date.now(),
+    //         location: ,
+    //         type: 
+    //     }
+    // }
+
     // addToUnsafe = (toilet) => {
     //     this.setState({ isUnsafe: [...this.state.isUnsafe, toilet] })
     // }
