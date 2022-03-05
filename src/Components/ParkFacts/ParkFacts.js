@@ -66,9 +66,9 @@ const ParkFacts = ({ parkCode, currentPark }) => {
             <Link to='/'>
                 <button>Home</button>
             </Link>
-            <Link to={`/${parkCode}/park/`}>
+            {/* <Link to={`/${parkCode}/park/`}>
                 <button>Back to Park</button>
-            </Link>
+            </Link> */}
             <div className='flex'>
                 <h1 className='info-title'>{currentPark.name} General Info</h1>
                 <section className='info-holder'>
