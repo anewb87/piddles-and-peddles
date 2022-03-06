@@ -45,7 +45,7 @@ class Park extends Component {
                     <h1 className='park-page-title info-title'>{this.state.currentPark.name}</h1>
                     <div className='link-container'>
                         <Link to={`/${this.state.selectedParkCode}/park/potties`}>
-                            <button className='toilets-info-btn'>Park Potties</button>
+                            <button data-testid='potties-button'className='toilets-info-btn'>Park Potties</button>
                         </Link>
                         <a data-testid='nps-button' className='toilets-info-btn nps-link' href={this.state.currentPark.npsLink}>NPS Website</a>
                     </div>

@@ -54,7 +54,13 @@ describe('Home/Landing Page and selection of a park', () => {
         .should('eq', 'https://www.nps.gov/arch/planyourvisit/directions.htm')
     });
 
-    // it('Should be able to navigate to the park potties page for the specific park ')
-
+    it('Should be able to navigate to the park potties page for the specific park', () => {
+        cy.get('[data-testid=potties-button]')
+        .click()
+        .server()
+        .route('/arch/park/potties')
+        .get('h1')
+        .should('have.text', 'Arches Toilet Locator')
+    })
 });
 
