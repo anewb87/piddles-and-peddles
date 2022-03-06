@@ -49,12 +49,12 @@ class ParkToilets extends Component {
     }
 
     postAToilet = (newToilet) => {
-        if(!this.state.postedToilets.includes(newToilet)) {
-            postToilet(newToilet)
-                //are these necessary for a post?
-                // .then(toilet => console.log('line 61', toilet))
-                // .catch(error => this.setState({ error: error }))
-        }
+        postToilet(newToilet)
+            .catch(error => this.setState({ error: error }))
+        // if(!this.state.postedToilets.includes(newToilet)) {
+        //     postToilet(newToilet)
+        //         .catch(error => this.setState({ error: error }))
+        // }
     }
 
     deleteAToilet = (toiletId) =>{

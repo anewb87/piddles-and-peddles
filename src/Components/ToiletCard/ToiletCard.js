@@ -10,8 +10,6 @@ const ToiletCard = ({ id, park, location, region, type, toilet, addToSafe, remov
         } else if (!event.target.checked) {
             deleteToilet(id)
         }
-
-        console.log('checked?', event.target.checked)
     }
 
     return (

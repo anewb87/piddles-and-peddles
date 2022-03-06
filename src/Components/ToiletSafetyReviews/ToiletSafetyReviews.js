@@ -29,23 +29,22 @@ class ToiletSafetyReviews extends Component {
 
         if (!this.state.postedToilets.includes(newToilet)) {
             postToilet(newToilet)
-            //are these necessary for a post?
-            // .then(toilet => console.log('line 61', toilet))
-            // .catch(error => this.setState({ error: error }))
+                .catch(error => this.setState({ error: error }))
         }
     }
 
 
     deleteAToilet = (toiletId) => {
         deleteRatedToilet(toiletId)
-            .then(response => console.log(response.json()))
-            .catch(error => this.setState({ error: error }))
+            // .then(reponse => getToiletPostings())
+            .then(response => {
+                const removedToilet = this.state.postedToilets.find(toilet => toilet.id === toiletId);
+                const filteredToilets = this.state.postedToilets.filter(toilet => toilet.id !== removedToilet.id)
 
-        const removedToilet = this.state.postedToilets.find(toilet => toilet.id !== toiletId);
-        const filteredToilets = this.state.postedToilets.filter(toilet => toilet.id !== removedToilet.id)
-
-        this.setState({ postedToilets: filteredToilets })
-        
+                this.setState({ postedToilets: filteredToilets })
+            })
+            
+            .catch(error => this.setState({ error: error })) 
     }
 
     createToiletCards = () => {
@@ -54,7 +53,7 @@ class ToiletSafetyReviews extends Component {
                 <ToiletCard
                     key={toilet.id}
                     id={toilet.id}
-                    park={toilet.name}
+                    park={toilet.park}
                     location={toilet.location}
                     region={toilet.region}
                     type={toilet.type}
