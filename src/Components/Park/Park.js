@@ -27,7 +27,7 @@ class Park extends Component {
         const pageStyle = {
             backgroundImage: `url(${parkImage.url})`,
             backgroundPosition: 'center',
-            // backgrounRepeat: 'repeat-y',
+            backgroundRepeat: 'repeat',
             backgroundSize: 'cover',
             height: '100vh'
         }

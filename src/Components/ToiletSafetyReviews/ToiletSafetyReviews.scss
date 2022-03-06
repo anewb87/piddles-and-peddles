@@ -12,9 +12,23 @@
     padding-top: 3em;
     margin: 0 7em 0 7em;
     font-size: 1.8em;
-
 }
 
+
+.safe-bike-title {
+    padding-top: .5em;
+    font-family: 'Comfortaa', cursive;
+    color: $white;
+    font-size: 3em;
+
+}
 // .tp-bike {
 //     width: 5em;
 // }
+
+@media screen and (max-width: 650px) {
+    .redirect-message {
+        font-size: 1.4em;
+        margin: 0 4em 0 4em
+    }
+}

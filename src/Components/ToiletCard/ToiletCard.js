@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ToiletCard.scss';
 
-const ToiletCard = ({ id, park, location, region, type, toilet, addToSafe, removeFromSafe, postToilet, deleteToilet }) => {
+const ToiletCard = ({ id, park, location, region, type, toilet, addToSafe, removeFromSafe, postToilet, deleteToilet, checkedStatus }) => {
 
     const handleCheckbox = (event) => {
         if(event.target.checked) {
@@ -28,7 +28,7 @@ const ToiletCard = ({ id, park, location, region, type, toilet, addToSafe, remov
             <p>{region}</p>
             <p>Toilet Type: {type}</p>
             <p>My Bike Feels Safe Here:</p>
-            <input onChange={(event) => handleCheckbox(event)} type='checkbox' name='safetyCheck' />
+            <input onChange={(event) => handleCheckbox(event)} type='checkbox' name='safetyCheck' checked={checkedStatus} />
         </section>
     )
 }
@@ -42,10 +42,11 @@ ToiletCard.propTypes = {
     region: PropTypes.string,
     type: PropTypes.string,
     toilet: PropTypes.object,
-    isToggled: PropTypes.bool,
-    onToggle: PropTypes.func
+    addToSafe: PropTypes.func,
+    removeFromSafe: PropTypes.func,
+    postToilet: PropTypes.func,
+    deleteToilet: PropTypes.func,
 }
-
 
 
 //old stuff below 6:43

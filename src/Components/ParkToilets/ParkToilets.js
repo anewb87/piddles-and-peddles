@@ -55,7 +55,6 @@ class ParkToilets extends Component {
         console.log('new Toilet', newToilet)
 
         const foundToilet = this.state.parkToilets.find(toilet => {
-            console.log('line 24', typeof toilet.id)
             return toilet.id === newToilet.id
         })
 

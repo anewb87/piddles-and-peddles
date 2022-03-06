@@ -13,6 +13,7 @@ class ToiletSafetyReviews extends Component {
         super();
         this.state = {
             postedToilets: [],
+            defaultChecked: true,
             error: ''
         }
     }
@@ -34,10 +35,17 @@ class ToiletSafetyReviews extends Component {
         }
     }
 
+
     deleteAToilet = (toiletId) => {
         deleteRatedToilet(toiletId)
             .then(response => console.log(response.json()))
             .catch(error => this.setState({ error: error }))
+
+        const removedToilet = this.state.postedToilets.find(toilet => toilet.id !== toiletId);
+        const filteredToilets = this.state.postedToilets.filter(toilet => toilet.id !== removedToilet.id)
+
+        this.setState({ postedToilets: filteredToilets })
+        
     }
 
     createToiletCards = () => {
@@ -46,7 +54,7 @@ class ToiletSafetyReviews extends Component {
                 <ToiletCard
                     key={toilet.id}
                     id={toilet.id}
-                    park={toilet.park}
+                    park={toilet.name}
                     location={toilet.location}
                     region={toilet.region}
                     type={toilet.type}
@@ -54,6 +62,7 @@ class ToiletSafetyReviews extends Component {
                     // addToSafe
                     postToilet={this.postAToilet}
                     deleteToilet={this.deleteAToilet}
+                    checkedStatus={this.state.defaultChecked}
                 />
             )
         })
@@ -74,6 +83,7 @@ class ToiletSafetyReviews extends Component {
             </section>
         } else {
             return <section>
+                <h1 className='safe-bike-title'>My Safe Bike Locations</h1>
                 <Link to='/'>
                     <button>Home</button>
                 </Link>
