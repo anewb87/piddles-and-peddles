@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getToiletInfo } from '../../apiCalls';
 import ToiletCard from '../ToiletCard/ToiletCard';
-import { rateToilet } from '../../apiCalls';
+import { postToilet } from '../../apiCalls';
+import { getToiletPostings } from '../../apiCalls';
+import { deleteRatedToilet } from '../../apiCalls';
 import PropTypes from 'prop-types';
 import './ParkToilets.scss'
 
@@ -14,6 +16,7 @@ class ParkToilets extends Component {
             selectedParkCode: props.parkName,
             parkToilets: [],
             safeToilets: [],
+            postedToilets: [],
             map: '',
             isLoading: true,
             error: ''
@@ -26,6 +29,9 @@ class ParkToilets extends Component {
             .then(this.createToiletCards())
             .catch(error => this.setState({ error: error }))
         
+        getToiletPostings()
+            .then(data => this.setState({ postedToilets: data }))
+
         this.setState({ isLoading: false })
     }
 
@@ -47,24 +53,43 @@ class ParkToilets extends Component {
 
     addToSafe = (newToilet) => {
         console.log('new Toilet', newToilet)
-        console.log('newToilet id', newToilet.id)
-        console.log('newToilet id type of', typeof newToilet.id)
 
         const foundToilet = this.state.parkToilets.find(toilet => {
             console.log('line 24', typeof toilet.id)
             return toilet.id === newToilet.id
         })
 
-        console.log('found toilet', foundToilet)
-
-        if (!this.state.safeToilets.includes(foundToilet))
+        if (!this.state.safeToilets.includes(foundToilet)) {
             this.setState({ safeToilets: [...this.state.safeToilets, foundToilet] })
+        }
+        //have to do fetch call to see what's in there
+
+            // postToilet(foundToilet)
+            //     .then(toilet => console.log('line 61', toilet))
+            //     .catch(error => this.setState({ error: error }))
+    }
+
+    postAToilet = (newToilet) => {
+        console.log('post line 74', this.state)
+
+        if(!this.state.postedToilets.includes(newToilet)) {
+            postToilet(newToilet)
+                // .then(toilet => console.log('line 61', toilet))
+                // .catch(error => this.setState({ error: error }))
+        }
     }
 
     removeFromSafe = (toiletId) => {
         const removedToilet = this.state.safeToilets.find(toilet => toilet.id !== toiletId);
         const filteredToilets = this.state.safeToilets.filter(toilet => toilet.id !== removedToilet.id)
         this.setState({ safeToilets: filteredToilets })
+
+    }
+
+    deleteAToilet = (toiletId) =>{
+        deleteRatedToilet(toiletId)
+            .then(response => console.log(response.json()))
+            .catch(error => this.setState({ error: error }))
     }
 
     createToiletCards = () => {
@@ -88,6 +113,8 @@ class ParkToilets extends Component {
 
                     addToSafe={this.addToSafe}
                     removeFromSafe={this.removeFromSafe}
+                    postToilet={this.postAToilet}
+                    deleteToilet={this.deleteAToilet}
 
                 />
             )

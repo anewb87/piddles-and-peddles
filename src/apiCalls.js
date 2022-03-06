@@ -16,12 +16,12 @@ const getToiletInfo = (name) => {
         .then(response => checkResponse(response))
 }
 
-const getToiletRatings = () => {
+const getToiletPostings = () => {
     return fetch('https://piddles-api.herokuapp.com/api/v1/reviews')
         .then(response => checkResponse(response))
 }
 
-const rateToilet = (newRating) => {
+const postToilet = (newRating) => {
     return fetch('https://piddles-api.herokuapp.com/api/v1/reviews', {
         method: "POST",
         headers: {
@@ -32,6 +32,12 @@ const rateToilet = (newRating) => {
         .then(response => checkResponse(response))
 };
 
+const deleteRatedToilet = (id) => {
+    return fetch(`https://piddles-api.herokuapp.com/api/v1/reviews/${id}`, {
+        method: 'DELETE'
+    })
+}
+
 const checkResponse = (response) => {
     if(!response.ok) {
         throw new Error(`Error`)
@@ -40,4 +46,4 @@ const checkResponse = (response) => {
     }
 }
 
-export { getParkInfo, getToiletInfo, getToiletRatings, rateToilet }
+export { getParkInfo, getToiletInfo, getToiletPostings, postToilet, deleteRatedToilet }

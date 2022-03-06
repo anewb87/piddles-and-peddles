@@ -3,13 +3,15 @@ import Toggle from '../Toggle/Toggle';
 import PropTypes from 'prop-types';
 import './ToiletCard.scss';
 
-const ToiletCard = ({ id, location, region, type, toilet, addToSafe, removeFromSafe }) => {
+const ToiletCard = ({ id, location, region, type, toilet, addToSafe, removeFromSafe, postToilet, deleteToilet }) => {
 
     const handleCheckbox = (event) => {
         if(event.target.checked) {
             addToSafe(toilet)
+            postToilet(toilet)
         } else if (!event.target.checked) {
             removeFromSafe()
+            deleteToilet(id)
         }
 
         console.log('checked?', event.target.checked)
