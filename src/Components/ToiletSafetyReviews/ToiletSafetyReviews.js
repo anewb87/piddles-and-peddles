@@ -13,7 +13,7 @@ class ToiletSafetyReviews extends Component {
         super();
         this.state = {
             reviewedToilets: [],
-            isToggled: false,
+            isToggled: true,
             error: ''
         }
     }
@@ -38,7 +38,8 @@ class ToiletSafetyReviews extends Component {
                     region={toilet.region}
                     type={toilet.type}
                     // addToSafe={this.addToSafe}
-                    post={this.postSafe}
+
+                    // post={this.postSafe}
 
                     // addToUnsafe={this.addToUnsafe}
                     isSafe={this.state.isSafe}

@@ -13,7 +13,7 @@ const ToiletCard = ({ id, location, region, type, isSafe, isToggled, onToggle, a
             {/* <button onClick={() => addToSafe(toilet)}>safe?</button> */}
 
 
-            <Toggle isToggled={isToggled} onToggle={onToggle}/> 
+            <Toggle id={id} post={post} isToggled={isToggled}/> 
             {/* <button onClick={() => post(toilet)}>safe?</button> */}
 
 

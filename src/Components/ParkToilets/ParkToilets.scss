@@ -6,7 +6,8 @@
     height: 100%;
 }
 
-.toilet-title {
+.toilet-title,
+.park-toilet-title {
     font-family: 'Comfortaa', cursive;
     text-align: center;
     font-weight: 700;
@@ -21,7 +22,7 @@
 
 .map {
     height: 100vh;
-    border: 5px $white solid;
+    // border: 5px $white solid;
 }
 
 .toilet-cards {

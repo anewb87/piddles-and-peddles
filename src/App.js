@@ -25,6 +25,9 @@ const App = () => {
   )
 }
 
+//add to favorites and remove from favorites, just pass the two functions down,
+//
+
 export default App;
 
 // class App extends Component {

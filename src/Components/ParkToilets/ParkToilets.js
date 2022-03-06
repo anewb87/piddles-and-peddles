@@ -14,8 +14,7 @@ class ParkToilets extends Component {
             selectedParkCode: props.parkName,
             parkToilets: [],
             isSafe:[],
-            isToggled: false,
-            // isUnsafe: [],
+            // isToggled: false,
             map: '',
             isLoading: true,
             error: ''
@@ -47,6 +46,15 @@ class ParkToilets extends Component {
         return parkName
     }
 
+    onToggle = (safeToilet) => {
+        if (!this.state.isToggled) {
+            this.postSafe(safeToilet)
+        }
+        this.setState({ isToggled: !this.state.isToggled })
+    }
+
+    
+    //pass id in instead of safeToilet
     postSafe = (safeToilet) => {
 
         const match = this.state.parkToilets.find(item => item.id === safeToilet.id)
@@ -58,12 +66,12 @@ class ParkToilets extends Component {
         }
     }
 
-    addToSafe = (toilet) => {
-       const match = this.state.parkToilets.find(item => item.id === toilet.id)
-        if (!this.state.isSafe.includes(match)) {
-            this.setState({ isSafe: [...this.state.isSafe, match] })
-        }
-    }
+    // addToSafe = (toilet) => {
+    //    const match = this.state.parkToilets.find(item => item.id === toilet.id)
+    //     if (!this.state.isSafe.includes(match)) {
+    //         this.setState({ isSafe: [...this.state.isSafe, match] })
+    //     }
+    // }
 
     // addToUnsafe = (toilet) => {
     //     this.setState({ isUnsafe: [...this.state.isUnsafe, toilet] })
@@ -79,7 +87,10 @@ class ParkToilets extends Component {
                     region={toilet.region}
                     type={toilet.type}
                     // addToSafe={this.addToSafe}
-                    post={this.postSafe}
+                    // post={this.postSafe}
+                    post={this.onToggle}
+                    isSafe={this.state.isSafe}
+                    // isToggled={this.state.isToggled}
 
                     // addToUnsafe={this.addToUnsafe}
                     isSafe={this.state.isSafe}
@@ -100,7 +111,7 @@ class ParkToilets extends Component {
         } else {
             return (
                 <section className='park-toilet-page'>
-                    <h1 className='toilet-title'>{this.determinePark()} Toilet Locator</h1>
+                    <h1 className='park-toilet-title'>{this.determinePark()} Toilet Locator</h1>
                     <Link to='/'>
                         <button>Home</button>
                     </Link>
