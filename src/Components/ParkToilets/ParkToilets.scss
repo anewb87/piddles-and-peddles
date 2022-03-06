@@ -30,7 +30,29 @@
     justify-content: center;
 }
 
-@media screen and (max-width: 1380px) {
+.loader {
+    text-align: center;
+    padding-top: 2em;
+    color: $white;
+    font-size: 3em;
+    background: black;
+    width: 100vw;
+    height: 100vh
+}
+
+// @media screen and (max-width: 1380px) {
+//     .info-container {
+//         flex-direction: column;
+//         justify-content: center;
+//     }
+    
+//     .map {
+//         width: 100vw;
+//         height: auto;
+//     }
+// }
+
+@media screen and (max-width: 1200px) {
     .info-container {
         flex-direction: column;
         justify-content: center;

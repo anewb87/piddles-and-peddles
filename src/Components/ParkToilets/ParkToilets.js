@@ -29,9 +29,7 @@ class ParkToilets extends Component {
             .catch(error => this.setState({ error: error }))
         
         getToiletPostings()
-            .then(data => this.setState({ postedToilets: data }))
-
-        this.setState({ isLoading: false })
+            .then(data => this.setState(({ postedToilets: data }), this.setState({ isLoading: false })))
     }
 
     determinePark = () => {
@@ -86,7 +84,7 @@ class ParkToilets extends Component {
 
     render() {
         if (this.state.isLoading) {
-            return <section>
+            return <section className='loader'>
                 <h1>LOADING...</h1>
                 <iframe src="https://giphy.com/embed/N256GFy1u6M6Y" width="480" height="319" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
                 </section>
