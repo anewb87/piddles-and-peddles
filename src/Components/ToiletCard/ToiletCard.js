@@ -6,20 +6,13 @@ const ToiletCard = ({ id, park, location, region, type, toilet, addToSafe, remov
 
     const handleCheckbox = (event) => {
         if(event.target.checked) {
-            // addToSafe(toilet)
             postToilet(toilet)
         } else if (!event.target.checked) {
-            // removeFromSafe()
             deleteToilet(id)
         }
 
         console.log('checked?', event.target.checked)
     }
-
-
-    // determineCheckbox = () => {
-    //     if()
-    // }
 
     return (
         <section className='card'>

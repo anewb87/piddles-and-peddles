@@ -15,7 +15,6 @@ class ParkToilets extends Component {
         this.state = {
             selectedParkCode: props.parkName,
             parkToilets: [],
-            safeToilets: [],
             postedToilets: [],
             map: '',
             isLoading: true,
@@ -51,34 +50,13 @@ class ParkToilets extends Component {
         return parkName
     }
 
-    addToSafe = (newToilet) => {
-        console.log('new Toilet', newToilet)
-
-        const foundToilet = this.state.parkToilets.find(toilet => {
-            return toilet.id === newToilet.id
-        })
-
-        if (!this.state.safeToilets.includes(foundToilet)) {
-            this.setState({ safeToilets: [...this.state.safeToilets, foundToilet] })
-        }
-    }
-
     postAToilet = (newToilet) => {
-        console.log('post line 74', this.state)
-
         if(!this.state.postedToilets.includes(newToilet)) {
             postToilet(newToilet)
                 //are these necessary for a post?
                 // .then(toilet => console.log('line 61', toilet))
                 // .catch(error => this.setState({ error: error }))
         }
-    }
-
-    removeFromSafe = (toiletId) => {
-        const removedToilet = this.state.safeToilets.find(toilet => toilet.id !== toiletId);
-        const filteredToilets = this.state.safeToilets.filter(toilet => toilet.id !== removedToilet.id)
-        this.setState({ safeToilets: filteredToilets })
-
     }
 
     deleteAToilet = (toiletId) =>{
@@ -97,8 +75,6 @@ class ParkToilets extends Component {
                     region={toilet.region}
                     type={toilet.type}
                     toilet={toilet}
-                    addToSafe={this.addToSafe}
-                    removeFromSafe={this.removeFromSafe}
                     postToilet={this.postAToilet}
                     deleteToilet={this.deleteAToilet}
                 />
