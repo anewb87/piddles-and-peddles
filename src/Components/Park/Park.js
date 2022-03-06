@@ -40,31 +40,31 @@ class Park extends Component {
             return (
                 <section style={pageStyle} className='park-overview-page'>
                     <Link to='/'>
-                        <button>Home</button>
+                        <button data-testid='home-button'>Home</button>
                     </Link>
                     <h1 className='park-page-title info-title'>{this.state.currentPark.name}</h1>
                     <div className='link-container'>
                         <Link to={`/${this.state.selectedParkCode}/park/potties`}>
                             <button className='toilets-info-btn'>Park Potties</button>
                         </Link>
-                        <a className='toilets-info-btn nps-link' href={this.state.currentPark.npsLink}>NPS Website</a>
+                        <a data-testid='nps-button' className='toilets-info-btn nps-link' href={this.state.currentPark.npsLink}>NPS Website</a>
                     </div>
-                    <p className='description'>{this.state.currentPark.description}</p>
+                    <p className='description' data-testid='description' >{this.state.currentPark.description}</p>
                     <section className='info-holder'>
                         {/* <section className='flex'> */}
                         <div className='info-bite'>
-                            <h2 className='category yellow'>CYCLING / NON-CAR ADMISSION</h2>
-                            <p>${entranceFee.cost}</p>
-                            <p>{entranceFee.description}</p>
+                            <h2 className='category' data-testid='sub-heading'>CYCLING / NON-CAR ADMISSION</h2>
+                            <p data-testid='info-bite'>${entranceFee.cost}</p>
+                            <p data-testid='info-bite'>{entranceFee.description}</p>
                         </div>
                         <div className='info-bite'>
-                            <h2 className='category'>OPERATING HOURS</h2>
-                            <p>{this.state.currentPark.operatingHours}</p>
+                            <h2 className='category' data-testid='sub-heading'>OPERATING HOURS</h2>
+                            <p data-testid='info-bite'>{this.state.currentPark.operatingHours}</p>
                         </div>
                         {/* </section> */}
                         <div className='info-bite'>
-                            <h2 className='category lightest-yellow'>WEATHER</h2>
-                            <p>{this.state.currentPark.weather}</p>
+                            <h2 className='category' data-testid='sub-heading'>WEATHER</h2>
+                            <p data-testid='info-bite'>{this.state.currentPark.weather}</p>
                         </div>
                     </section>
                 </section>
