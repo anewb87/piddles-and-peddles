@@ -16,12 +16,14 @@ const ToiletCard = ({ id, park, location, region, type, toilet, addToSafe, remov
 
     return (
         <section className='card'>
+            {/* where is this?! It's in the data but not coming through here? */}
             <h2>{park}</h2>
             <h3>{location}</h3>
             <p>{region}</p>
             <p>Toilet Type: {type}</p>
-            <p>My Bike Feels Safe Here:</p>
-            <input onChange={(event) => handleCheckbox(event)} type='checkbox' name='safetyCheck' checked={checkedStatus} />
+            {/* <p>My Bike Feels Safe Here:</p> */}
+            <label htmlFor='safetycheck'>My Bike Feels Safe Here:</label><br/>
+            <input id='safetycheck' onChange={(event) => handleCheckbox(event)} type='checkbox' checked={checkedStatus} />
         </section>
     )
 }

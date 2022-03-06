@@ -1,4 +1,4 @@
-{
+[{
     "description": "Visit Arches. We have all the arches.",
     "entranceFee": {
         "cost": "15.00",
@@ -20,3 +20,4 @@
     "operatingHours": "We never close.",
     "weather": "Not too hot, not too cold, all you need is a light jacket."
 }
+]

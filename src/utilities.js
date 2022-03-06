@@ -1,5 +1,3 @@
-import ToiletCard from "./Components/ToiletCard/ToiletCard";
-
 const cleanParkData = (parkInfo) => {
     const cleanedData = parkInfo.data.map(park => {
         return {
