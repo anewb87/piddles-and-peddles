@@ -1,16 +1,13 @@
 import React from 'react';
-import Toggle from '../Toggle/Toggle';
 import PropTypes from 'prop-types';
 import './ToiletCard.scss';
 
-const ToiletCard = ({ id, location, region, type, toilet, addToSafe, removeFromSafe, postToilet, deleteToilet }) => {
+const ToiletCard = ({ id, park, location, region, type, toilet, addToSafe, removeFromSafe, postToilet, deleteToilet, checkedStatus }) => {
 
     const handleCheckbox = (event) => {
         if(event.target.checked) {
-            addToSafe(toilet)
             postToilet(toilet)
         } else if (!event.target.checked) {
-            removeFromSafe()
             deleteToilet(id)
         }
 
@@ -19,16 +16,12 @@ const ToiletCard = ({ id, location, region, type, toilet, addToSafe, removeFromS
 
     return (
         <section className='card'>
-            <h2>{location}</h2>
+            <h2>{park}</h2>
+            <h3>{location}</h3>
             <p>{region}</p>
             <p>Toilet Type: {type}</p>
-
-            {/* <Toggle id={id} addToSafe={addToSafe} removeFromSafe={removeFromSafe}/>  */}
-
-            <input onChange={(event) => handleCheckbox(event)} type='checkbox' name='safetyCheck' />
-
-            {/* <button onClick={() => addToSafe(toilet)}>safe?</button> */}
-            {/* <button onClick={() => post(toilet)}>safe?</button> */}
+            <p>My Bike Feels Safe Here:</p>
+            <input onChange={(event) => handleCheckbox(event)} type='checkbox' name='safetyCheck' checked={checkedStatus} />
         </section>
     )
 }
@@ -36,13 +29,17 @@ const ToiletCard = ({ id, location, region, type, toilet, addToSafe, removeFromS
 export default ToiletCard
 
 ToiletCard.propTypes = {
+    id: PropTypes.number,
+    park: PropTypes.string,
     location: PropTypes.string,
     region: PropTypes.string,
     type: PropTypes.string,
-    isToggled: PropTypes.bool,
-    onToggle: PropTypes.func
+    toilet: PropTypes.object,
+    addToSafe: PropTypes.func,
+    removeFromSafe: PropTypes.func,
+    postToilet: PropTypes.func,
+    deleteToilet: PropTypes.func,
 }
-
 
 
 //old stuff below 6:43

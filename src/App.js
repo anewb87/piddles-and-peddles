@@ -19,7 +19,7 @@ const App = () => {
           return <Park parkName={match.params.parkroute} />
         }} />
         <Route exact path='/:parkroute/park/potties' render={({ match }) => <ParkToilets parkName={match.params.parkroute} />} />
-        <Route exact path='/mytoiletratings' render={() => <ToiletSafetyReviews safeToilets={this.state.safeToilets} />} />
+        <Route exact path='/mytoiletratings' render={() => <ToiletSafetyReviews/>} />
         <Route exact path='/error' render={() => <Error />} />
         <Redirect to='/error' />
       </Switch>

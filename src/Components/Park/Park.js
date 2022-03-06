@@ -27,7 +27,7 @@ class Park extends Component {
         const pageStyle = {
             backgroundImage: `url(${parkImage.url})`,
             backgroundPosition: 'center',
-            // backgrounRepeat: 'repeat-y',
+            // backgroundRepeat: 'repeat',
             backgroundSize: 'cover',
             height: '100vh'
         }
@@ -56,8 +56,6 @@ class Park extends Component {
                             <h2 className='category yellow'>CYCLING / NON-CAR ADMISSION</h2>
                             <p>${entranceFee.cost}</p>
                             <p>{entranceFee.description}</p>
-                            {/* <p>${this.state.currentPark.cost}</p> */}
-                            {/* <p>{entranceFee.cost} {entranceFee .title}</p> */}
                         </div>
                         <div className='info-bite'>
                             <h2 className='category'>OPERATING HOURS</h2>
@@ -69,7 +67,6 @@ class Park extends Component {
                             <p>{this.state.currentPark.weather}</p>
                         </div>
                     </section>
-                    {/* <ParkFacts parkCode={this.state.selectedParkCode} currentPark={this.state.currentPark} /> */}
                 </section>
             )
         }
