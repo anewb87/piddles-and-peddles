@@ -3,7 +3,17 @@ import Toggle from '../Toggle/Toggle';
 import PropTypes from 'prop-types';
 import './ToiletCard.scss';
 
-const ToiletCard = ({ id, location, region, type, addToSafe, removeFromSafe }) => {
+const ToiletCard = ({ id, location, region, type, toilet, addToSafe, removeFromSafe }) => {
+
+    const handleCheckbox = (event) => {
+        if(event.target.checked) {
+            addToSafe(toilet)
+        } else if (!event.target.checked) {
+            removeFromSafe()
+        }
+
+        console.log('checked?', event.target.checked)
+    }
 
     return (
         <section className='card'>
@@ -11,7 +21,10 @@ const ToiletCard = ({ id, location, region, type, addToSafe, removeFromSafe }) =
             <p>{region}</p>
             <p>Toilet Type: {type}</p>
 
-            <Toggle id={id} addToSafe={addToSafe} removeFromSafe={removeFromSafe}/> 
+            {/* <Toggle id={id} addToSafe={addToSafe} removeFromSafe={removeFromSafe}/>  */}
+
+            <input onChange={(event) => handleCheckbox(event)} type='checkbox' name='safetyCheck' />
+
             {/* <button onClick={() => addToSafe(toilet)}>safe?</button> */}
             {/* <button onClick={() => post(toilet)}>safe?</button> */}
         </section>

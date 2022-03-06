@@ -33,7 +33,7 @@ const ToiletSafetyReviews = ({ safeToilets }) => {
                     isToggled={this.state.isToggled}
                     onToggle={this.onToggle}
                 // isSafe={this.state.isSafe}
-                // toilet={toilet}
+                    // toilet={toilet}
                 />
             )
         })

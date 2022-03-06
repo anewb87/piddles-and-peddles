@@ -5,10 +5,13 @@ import './Toggle.scss'
 const Toggle = ({ id, addToSafe, removeFromSafe }) => {
 
    const changeChecked = (event, id) => {
+       event.preventDefault()
+       console.log('event', event)
+       console.log('id', id)
         event.target.checked = !event.target.checked
 
         if(event.target.checked) {
-            addToSafe()
+            addToSafe(id)
         } else {
             removeFromSafe(id)
         }
@@ -16,7 +19,7 @@ const Toggle = ({ id, addToSafe, removeFromSafe }) => {
 
     return (
         <label className='toggle'>
-            <input type='checkbox' checked="false" onChange={(event) => changeChecked(event)} />
+            <input type='checkbox' checked={false} onChange={(event) => changeChecked(event)} />
             <span className='slider' />
         </label>
     )

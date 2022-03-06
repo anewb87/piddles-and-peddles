@@ -13,8 +13,7 @@ class ParkToilets extends Component {
         this.state = {
             selectedParkCode: props.parkName,
             parkToilets: [],
-            // isSafe:[],
-            // isToggled: false,
+            safeToilets: [],
             map: '',
             isLoading: true,
             error: ''
@@ -30,7 +29,7 @@ class ParkToilets extends Component {
         this.setState({ isLoading: false })
     }
 
-    determinePark() {
+    determinePark = () => {
         let parkName
         if (this.state.selectedParkCode === 'arch') {
             parkName = 'Arches'
@@ -46,36 +45,27 @@ class ParkToilets extends Component {
         return parkName
     }
 
-    // onToggle = (safeToilet) => {
-    //     if (!this.state.isToggled) {
-    //         this.postSafe(safeToilet)
-    //     }
-    //     this.setState({ isToggled: !this.state.isToggled })
-    // }
+    addToSafe = (newToilet) => {
+        console.log('new Toilet', newToilet)
+        console.log('newToilet id', newToilet.id)
+        console.log('newToilet id type of', typeof newToilet.id)
 
-    
-    //pass id in instead of safeToilet
-    // postSafe = (safeToilet) => {
+        const foundToilet = this.state.parkToilets.find(toilet => {
+            console.log('line 24', typeof toilet.id)
+            return toilet.id === newToilet.id
+        })
 
-    //     const match = this.state.parkToilets.find(item => item.id === safeToilet.id)
+        console.log('found toilet', foundToilet)
 
-    //     if(!this.state.isSafe.includes(match)) {
-    //         rateToilet(safeToilet)
-    //             .then(toilet => this.setState({ isSafe: [...this.state.isSafe, toilet] }))
-    //             .catch(error => this.setState({ error: error }))
-    //     }
-    // }
+        if (!this.state.safeToilets.includes(foundToilet))
+            this.setState({ safeToilets: [...this.state.safeToilets, foundToilet] })
+    }
 
-    // addToSafe = (toilet) => {
-    //    const match = this.state.parkToilets.find(item => item.id === toilet.id)
-    //     if (!this.state.isSafe.includes(match)) {
-    //         this.setState({ isSafe: [...this.state.isSafe, match] })
-    //     }
-    // }
-
-    // addToUnsafe = (toilet) => {
-    //     this.setState({ isUnsafe: [...this.state.isUnsafe, toilet] })
-    // }
+    removeFromSafe = (toiletId) => {
+        const removedToilet = this.state.safeToilets.find(toilet => toilet.id !== toiletId);
+        const filteredToilets = this.state.safeToilets.filter(toilet => toilet.id !== removedToilet.id)
+        this.setState({ safeToilets: filteredToilets })
+    }
 
     createToiletCards = () => {
         const toiletCards = this.state.parkToilets.map(toilet => {
@@ -94,10 +84,10 @@ class ParkToilets extends Component {
 
                     // addToUnsafe={this.addToUnsafe}
                     // isSafe={this.state.isSafe}
-                    // toilet={toilet}
+                    toilet={toilet}
 
-                    addToSafe={this.props.addToSafe}
-                    removeFromSafe={this.props.removeFromSafe}
+                    addToSafe={this.addToSafe}
+                    removeFromSafe={this.removeFromSafe}
 
                 />
             )
@@ -144,6 +134,41 @@ export default ParkToilets
 ParkToilets.propTypes = {
     parkName: PropTypes.string.isRequired,
 }
+
+
+
+
+//10:54
+    // onToggle = (safeToilet) => {
+    //     if (!this.state.isToggled) {
+    //         this.postSafe(safeToilet)
+    //     }
+    //     this.setState({ isToggled: !this.state.isToggled })
+    // }
+
+    
+    //pass id in instead of safeToilet
+    // postSafe = (safeToilet) => {
+
+    //     const match = this.state.parkToilets.find(item => item.id === safeToilet.id)
+
+    //     if(!this.state.isSafe.includes(match)) {
+    //         rateToilet(safeToilet)
+    //             .then(toilet => this.setState({ isSafe: [...this.state.isSafe, toilet] }))
+    //             .catch(error => this.setState({ error: error }))
+    //     }
+    // }
+
+    // addToSafe = (toilet) => {
+    //    const match = this.state.parkToilets.find(item => item.id === toilet.id)
+    //     if (!this.state.isSafe.includes(match)) {
+    //         this.setState({ isSafe: [...this.state.isSafe, match] })
+    //     }
+    // }
+
+    // addToUnsafe = (toilet) => {
+    //     this.setState({ isUnsafe: [...this.state.isUnsafe, toilet] })
+    // }
 
 
 
