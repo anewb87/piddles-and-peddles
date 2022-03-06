@@ -62,11 +62,6 @@ class ParkToilets extends Component {
         if (!this.state.safeToilets.includes(foundToilet)) {
             this.setState({ safeToilets: [...this.state.safeToilets, foundToilet] })
         }
-        //have to do fetch call to see what's in there
-
-            // postToilet(foundToilet)
-            //     .then(toilet => console.log('line 61', toilet))
-            //     .catch(error => this.setState({ error: error }))
     }
 
     postAToilet = (newToilet) => {
@@ -74,6 +69,7 @@ class ParkToilets extends Component {
 
         if(!this.state.postedToilets.includes(newToilet)) {
             postToilet(newToilet)
+                //are these necessary for a post?
                 // .then(toilet => console.log('line 61', toilet))
                 // .catch(error => this.setState({ error: error }))
         }
@@ -101,21 +97,11 @@ class ParkToilets extends Component {
                     location={toilet.location}
                     region={toilet.region}
                     type={toilet.type}
-                    // addToSafe={this.addToSafe}
-                    // post={this.postSafe}
-                    // post={this.onToggle}
-                    // isSafe={this.state.isSafe}
-                    // isToggled={this.state.isToggled}
-
-                    // addToUnsafe={this.addToUnsafe}
-                    // isSafe={this.state.isSafe}
                     toilet={toilet}
-
                     addToSafe={this.addToSafe}
                     removeFromSafe={this.removeFromSafe}
                     postToilet={this.postAToilet}
                     deleteToilet={this.deleteAToilet}
-
                 />
             )
         })
@@ -137,7 +123,7 @@ class ParkToilets extends Component {
                         <button>Home</button>
                     </Link>
                     <Link to='/mytoiletratings'>
-                        <button>My Safe Toilets</button>
+                        <button>My Bike-Safe Bathrooms</button>
                     </Link>
                     <Link to={`/${this.state.selectedParkCode}/park/`}>
                         <button>Back to Park</button>
