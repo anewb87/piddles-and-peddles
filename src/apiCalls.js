@@ -36,8 +36,7 @@ const deleteRatedToilet = (id) => {
 
 const checkResponse = (response) => {
     if(!response.ok) {
-        throw (`${response.status}`)
-        // throw new Error(`Error`)
+        throw new Error(`Error`)
     } else {
         return response.json()
     }

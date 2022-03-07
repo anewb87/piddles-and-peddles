@@ -13,7 +13,9 @@ describe('User-selected specific park information', () => {
             .should('have.text', 'Home')
             .get('[data-testid=toilet-card]')
             .should('have.length', 3)
-
+            .get('[data-testid=toilet-card]')
+            .eq(0)
+            .should('contain', 'Lexy\'s Loo')
     })
 
     it('Shoud be able to navigate to home page', () => {
