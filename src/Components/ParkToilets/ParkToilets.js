@@ -50,13 +50,11 @@ class ParkToilets extends Component {
 
     postAToilet = (newToilet) => {
         postToilet(newToilet)
-            // .then(response => console.log(response.json()))
             .catch(error => this.setState({ error: error }))
     }
 
     deleteAToilet = (toiletId) =>{
         deleteRatedToilet(toiletId)
-            .then(response => console.log(response.json()))
             .catch(error => this.setState({ error: error }))
     }
 
