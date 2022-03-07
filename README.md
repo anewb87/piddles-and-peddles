@@ -13,15 +13,17 @@
 ## OVERVIEW
 Finding a little privacy to answer Mother Nature's call isn't always so easy when you're out exploring Mother Nature. Especially when you're on a bike. More especially when you're in one of Utah's five National Parks- those places get busy!!! The struggle can become very real and when you have to leave your bike outside amidst among all the people, that can get a bit nerve-wracking. Enter: Piddles & Peddles, an application that lets cyclists know where the restrooms are in Utah's national parks and allows them check whether or not they felt the restroom was safe for their bike.
 
-Home:
+View the National Park options and select one. General information about that park is displayed along with a link to the National Park Service's official page.
 
-Park Info:
+![Piddles Page](https://media.giphy.com/media/CEy7AX7cWaFCGw38g5/giphy.gif)
 
-Toilet Locator:
+On the park's general information page, a user can view a map of the park with identified toilets and can 'rate' if they've visited that toilet and felt their bike was safe.
 
-User-Created Bike-Safe Bathroom List:
+![Select Toilets](https://media.giphy.com/media/zp9uACQtZKS5QkQw3S/giphy.gif)
 
+After a user has selected thier toilets, they can view all of them and deselect if they so choose.
 
+![Unselecting](https://media.giphy.com/media/yO9D8iguXKAs42HssL/giphy.gif)
 
 ## LEARNING GOALS
 - React fundamentals
@@ -41,7 +43,7 @@ User-Created Bike-Safe Bathroom List:
 ![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-
+![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![SASS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Webpack](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=Webpack&logoColor=white)
