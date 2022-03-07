@@ -81,7 +81,7 @@ class ParkToilets extends Component {
     determineRender = () => {
         if (this.state.isLoading) {
             return <section className='loader'>
-                <h1>LOADING...</h1>
+                <h1 data-testid="loader">LOADING...</h1>
                 <iframe src="https://giphy.com/embed/N256GFy1u6M6Y" width="480" height="319" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
             </section>
         } else if (this.state.error) {
@@ -89,7 +89,7 @@ class ParkToilets extends Component {
         } else {
             return (
                 <section className='park-toilet-page'>
-                    <h1 className='park-toilet-title'>{this.determinePark()} Toilet Locator</h1>
+                    <h1 data-testid='title' className='park-toilet-title'>{this.determinePark()} Toilet Locator</h1>
                     <Link to='/'>
                         <button>Home</button>
                     </Link>

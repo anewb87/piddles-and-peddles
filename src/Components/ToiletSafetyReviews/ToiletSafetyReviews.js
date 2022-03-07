@@ -54,7 +54,6 @@ class ToiletSafetyReviews extends Component {
                     region={toilet.region}
                     type={toilet.type}
                     toilet={toilet}
-                    // addToSafe
                     postToilet={this.postAToilet}
                     deleteToilet={this.deleteAToilet}
                     checkedStatus={this.state.defaultChecked}

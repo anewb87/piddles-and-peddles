@@ -4,11 +4,13 @@ import './Error.scss';
 
 const Error = () => {
     return (
-        <section>
-            <h2>Looks like we're biking the wrong way down a one way road. Hop on that cycle and try again.</h2>
-            <Link to='/'>
-                <button>Try Again</button>
-            </Link>
+        <section className='error-page'>
+            <h1 className='error-message' data-testid='message'>Looks like we're biking the wrong way down a one way road. <br/>Hop on that cycle and try again.</h1>
+            <div className='center-btn'>
+                <Link to='/'>
+                    <button className='take-home'>Take Me Home (Country Roads)</button>
+                </Link>
+            </div>
         </section>
     )
 }
