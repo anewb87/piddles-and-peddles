@@ -1,7 +1,7 @@
 # PIDDLES & PEDDLES- A CYCLISTS GUIDE TO GOING IN UTAH'S NATIONAL PARKS
 
 ## TABLE OF CONTENTS
-- [Abstract](#abstract)
+- [Overview](#overview)
 - [Future Features](#future-features)
 - [Tech Stack](#technologies-used)
 - [Install Instructions](#instructions)
@@ -10,8 +10,18 @@
 ## DEPLOYED LINK
 [Piddes & Peddles](https://piddles-and-peddles.herokuapp.com/arch/park)
 
-## ABSTRACT
+## OVERVIEW
 Finding a little privacy to answer Mother Nature's call isn't always so easy when you're out exploring Mother Nature. Especially when you're on a bike. More especially when you're in one of Utah's five National Parks- those places get busy!!! The struggle can become very real and when you have to leave your bike outside amidst among all the people, that can get a bit nerve-wracking. Enter: Piddles & Peddles, an application that lets cyclists know where the restrooms are in Utah's national parks and allows them check whether or not they felt the restroom was safe for their bike.
+
+Home:
+
+Park Info:
+
+Toilet Locator:
+
+User-Created Bike-Safe Bathroom List:
+
+
 
 ## LEARNING GOALS
 - React fundamentals
@@ -42,8 +52,8 @@ Finding a little privacy to answer Mother Nature's call isn't always so easy whe
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 ## BACKEND
-[Deployed API](https://piddles-api.herokuapp.com/)
-[API Repo](https://github.com/anewb87/piddles-api)
+- [Deployed API](https://piddles-api.herokuapp.com/)
+- [API Repo](https://github.com/anewb87/piddles-api)
 
 ## INSTRUCTIONS
 - fork the repository
