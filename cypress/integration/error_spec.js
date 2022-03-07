@@ -42,8 +42,9 @@ describe('Error page', () => {
             .should('have.text', 'Take Me Home (Country Roads)')
     })
 
-
-
-    //type in a bad thing into the url
-
+    it('Should reroute to the error page upon typing in an incorrect url', () => {
+        cy.visit('http://localhost:3000/lexyisthebest')
+            .url()
+            .should('eq', 'http://localhost:3000/error')
+    })
 })
