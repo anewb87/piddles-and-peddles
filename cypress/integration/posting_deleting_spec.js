@@ -1,32 +1,35 @@
-describe('User selects, deslects, and views safe toilet cards', () => {
+describe('User posts and deletes safe toilet cards', () => {
 
-    beforeEach(() => {
+    it('Should be able to post a safe toilet card', () => {
+        cy.intercept('POST', 'https://piddles-api.herokuapp.com/api/v1/reviews', {
+            "id": 22,
+            "location": "Backyard",
+            "type": "pit"
+        }).as('post')
 
-        cy.intercept('GET', 'https://piddles-api.herokuapp.com/api/v1/reviews', {
+        cy.visit('http://localhost:3000/arch/park/potties')
 
-        } )
+        cy.get('[type=checkbox]')
+        .first()
+        .click()
+        cy.wait('@post').then(console.log)
     })
 
-    it('Should be able to select and deslect toilet cards on the park toilet locator page, navigate to selected safe toilet page to view selected toilet cards, and delete those cards', () => {
+    it('Should be able to delete a safe toilet card', () => {
+        cy.intercept('DELETE', 'https://piddles-api.herokuapp.com/api/v1/reviews/22', {
+            statusCode: 200,
+            body: {
+                message: 'Bike safety review has been deleted'
+            }
+        })
 
-        cy.visit('http://localhost:3000/zion/park/potties')
+        cy.intercept('GET', 'https://piddles-api.herokuapp.com/api/v1/reviews', { fixture: 'postedPotties.json' })
+
+        cy.visit('http://localhost:3000/mytoiletratings')
             .get('[type=checkbox]')
-            .eq(0)
-            .check()
-            .get('[type=checkbox]')
-            .eq(3)
-            .check()
-            .get('[type=checkbox]')
-            .eq(5)
-            .check()
-            .get('[type=checkbox]')
-            .eq(5)
-            .uncheck()
-            .get('[data-testid=btn-bike-safe]')
+            .first()
             .click()
-            .server()
-            .route('/arch/park/mytoiletratings')
-            .get('[data-testid=toilet-card]')
-            .should('have.length', 3)
+            .get('[type=checkbox]')
+            .should('have.length', 2)
     })
 })

@@ -1,6 +1,5 @@
 describe('Park Potties Page', () => {
     beforeEach(() => {
-
         cy.visit('http://localhost:3000/arch/park/potties')
     })
 
