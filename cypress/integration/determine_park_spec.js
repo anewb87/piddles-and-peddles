@@ -2,6 +2,12 @@ describe('Home/Landing Page and selection of a park', () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000')
     })
+
+    it('Should have the basic / url when displaying page', () => {
+        cy.url()
+            .should('eq', 'http://localhost:3000/')
+    })
+
     it('Should be able to visit the page and render the correct elements', () => {
         cy.get('h1')
             .contains('THE MIGHTY FIVE')

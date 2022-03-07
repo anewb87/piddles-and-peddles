@@ -1,0 +1,5 @@
+[
+    { "id": 1, "park": "Arches", "location": "Lexy's Loo", "type": "pit" },
+    { "id": 3, "park": "Arches", "location": "Jazzy's John", "type": "compost" },
+    { "id": 2, "park": "Arches", "location": "Ali's Honey Bucket", "type": "flush"}
+]

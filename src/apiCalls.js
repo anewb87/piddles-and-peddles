@@ -1,4 +1,5 @@
 import { cleanParkData } from "./utilities"
+import Error from './Components/Error/Error'
 
 const getParkInfo = (name) => {
     return fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${name}&api_key=ZFh4J8ek4qkf10nPDT0FsTn1hgslzolLkGQMkXvd`)

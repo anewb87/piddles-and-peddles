@@ -1,0 +1,12 @@
+[
+    {
+        "id": "arch",
+        "name": "Friendly Toilet",
+        "map": "https: //i.postimg.cc/y8N3rT9S/arch.png",
+        "toilets" : [ 
+            { "id": 1, "park": "Arches", "location": "Lexy's Loo", "region": "somewhere", "type": "pit"},
+            { "id": 3, "park": "Arches", "location": "Jazzy's John", "region": "somewhere", "type": "compost"},
+            { "id": 2, "park": "Arches", "location": "Ali's Honey Bucket", "region": "somewhere", "type": "flush"}
+        ]
+    }
+]

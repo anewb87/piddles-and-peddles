@@ -27,7 +27,6 @@ class Park extends Component {
         const pageStyle = {
             backgroundImage: `url(${parkImage.url})`,
             backgroundPosition: 'center',
-            // backgroundRepeat: 'repeat',
             backgroundSize: 'cover',
             height: '100vh'
         }
@@ -39,13 +38,13 @@ class Park extends Component {
         } else {
             return (
                 <section style={pageStyle} className='park-overview-page'>
-                    <Link to='/'>
-                        <button data-testid='home-button'>Home</button>
-                    </Link>
                     <h1 className='park-page-title info-title'>{this.state.currentPark.name}</h1>
                     <div className='link-container'>
+                        <Link to='/'>
+                            <button data-testid='home-button' className='toilets-info-btn'>Home</button>
+                        </Link>
                         <Link to={`/${this.state.selectedParkCode}/park/potties`}>
-                            <button className='toilets-info-btn'>Park Potties</button>
+                            <button data-testid='potties-button'className='toilets-info-btn'>Park Potties</button>
                         </Link>
                         <a data-testid='nps-button' className='toilets-info-btn nps-link' href={this.state.currentPark.npsLink}>NPS Website</a>
                     </div>

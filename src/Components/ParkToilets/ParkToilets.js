@@ -50,6 +50,7 @@ class ParkToilets extends Component {
 
     postAToilet = (newToilet) => {
         postToilet(newToilet)
+            // .then(response => console.log(response.json()))
             .catch(error => this.setState({ error: error }))
     }
 
@@ -81,7 +82,7 @@ class ParkToilets extends Component {
     determineRender = () => {
         if (this.state.isLoading) {
             return <section className='loader'>
-                <h1>LOADING...</h1>
+                <h1 data-testid="loader">LOADING...</h1>
                 <iframe src="https://giphy.com/embed/N256GFy1u6M6Y" width="480" height="319" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
             </section>
         } else if (this.state.error) {
@@ -89,16 +90,18 @@ class ParkToilets extends Component {
         } else {
             return (
                 <section className='park-toilet-page'>
-                    <h1 className='park-toilet-title'>{this.determinePark()} Toilet Locator</h1>
-                    <Link to='/'>
-                        <button>Home</button>
-                    </Link>
-                    <Link to='/mytoiletratings'>
-                        <button>My Bike-Safe Bathrooms</button>
-                    </Link>
-                    <Link to={`/${this.state.selectedParkCode}/park/`}>
-                        <button>Back to Park</button>
-                    </Link>
+                    <h1 data-testid='title' className='park-toilet-title'>{this.determinePark()} Toilet Locator</h1>
+                    <div className='place-buttons'>
+                        <Link to='/'>
+                            <button data-testid='btn-home'>Home</button>
+                        </Link>
+                        <Link to={`/${this.state.selectedParkCode}/park/`}>
+                            <button data-testid='btn-back-park'>Back to Park</button>
+                        </Link>
+                        <Link to='/mytoiletratings'>
+                            <button data-testid='btn-bike-safe'>Bike-Safe Bathrooms</button>
+                        </Link>
+                    </div>
                     <section className='info-container'>
                         <div>
                             <img className='map' src={this.state.map} alt={`Map of ${this.determinePark()} National Park Toilets`} />
