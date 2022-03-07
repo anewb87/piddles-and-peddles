@@ -5,7 +5,6 @@ import { postToilet } from '../../apiCalls';
 import { deleteRatedToilet } from '../../apiCalls';
 import ToiletCard from '../ToiletCard/ToiletCard';
 import Error from '../Error/Error';
-// import bike from '../../Assets/bike.png';
 import './ToiletSafetyReviews.scss';
 
 class ToiletSafetyReviews extends Component {
@@ -73,7 +72,6 @@ class ToiletSafetyReviews extends Component {
                 <Link to='/'>
                     <button>Show Me the Mighty Five</button>
                 </Link>
-                {/* <img className='tp-bike' src={bike} alt='bicycle with toilet paper back tire'></img> */}
             </section>
         } else {
             return <section>
