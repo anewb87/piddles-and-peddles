@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ToiletCard.scss';
 
-const ToiletCard = ({ id, park, location, region, type, toilet, postToilet, deleteToilet, checkedStatus }) => {
+const ToiletCard = ({ id, location, region, type, toilet, postToilet, deleteToilet, checkedStatus }) => {
 
     const handleCheckbox = (event) => {
         if(event.target.checked) {
@@ -13,10 +13,8 @@ const ToiletCard = ({ id, park, location, region, type, toilet, postToilet, dele
     }
 
     return (
-        <section className='card'>
-            {/* where is this?! It's in the data but not coming through here? */}
-            <h2>{park}</h2>
-            <h3>{location}</h3>
+        <section data-testid='toilet-card' className='card'>
+            <h2>{location}</h2>
             <p>{region}</p>
             <p>Toilet Type: {type}</p>
             <label htmlFor='safetycheck'>My Bike Feels Safe Here:</label><br/>
@@ -29,7 +27,6 @@ export default ToiletCard
 
 ToiletCard.propTypes = {
     id: PropTypes.number,
-    park: PropTypes.string,
     location: PropTypes.string,
     region: PropTypes.string,
     type: PropTypes.string,

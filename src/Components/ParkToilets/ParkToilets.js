@@ -90,15 +90,17 @@ class ParkToilets extends Component {
             return (
                 <section className='park-toilet-page'>
                     <h1 data-testid='title' className='park-toilet-title'>{this.determinePark()} Toilet Locator</h1>
-                    <Link to='/'>
-                        <button>Home</button>
-                    </Link>
-                    <Link to='/mytoiletratings'>
-                        <button>My Bike-Safe Bathrooms</button>
-                    </Link>
-                    <Link to={`/${this.state.selectedParkCode}/park/`}>
-                        <button>Back to Park</button>
-                    </Link>
+                    <div className='place-buttons'>
+                        <Link to='/'>
+                            <button data-testid='btn-home'>Home</button>
+                        </Link>
+                        <Link to={`/${this.state.selectedParkCode}/park/`}>
+                            <button data-testid='btn-back-park'>Back to Park</button>
+                        </Link>
+                        <Link to='/mytoiletratings'>
+                            <button data-testid='btn-bike-safe'>Bike-Safe Bathrooms</button>
+                        </Link>
+                    </div>
                     <section className='info-container'>
                         <div>
                             <img className='map' src={this.state.map} alt={`Map of ${this.determinePark()} National Park Toilets`} />
