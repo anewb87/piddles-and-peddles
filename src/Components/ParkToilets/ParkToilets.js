@@ -91,13 +91,13 @@ class ParkToilets extends Component {
                     <h1 data-testid='title' className='park-toilet-title'>{this.determinePark()} Toilet Locator</h1>
                     <div className='place-buttons'>
                         <Link to='/'>
-                            <button data-testid='btn-home'>Home</button>
+                            <button className='toilet-page-btn' data-testid='btn-home'>Home</button>
                         </Link>
                         <Link to={`/${this.state.selectedParkCode}/park/`}>
-                            <button data-testid='btn-back-park'>Back to Park</button>
+                            <button className='toilet-page-btn' data-testid='btn-back-park'>Back to Park</button>
                         </Link>
                         <Link to='/mytoiletratings'>
-                            <button data-testid='btn-bike-safe'>Bike-Safe Bathrooms</button>
+                            <button className='toilet-page-btn' data-testid='btn-bike-safe'>Bike-Safe Bathrooms</button>
                         </Link>
                     </div>
                     <section className='info-container'>

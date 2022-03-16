@@ -12,25 +12,42 @@
     text-align: center;
     font-weight: 700;
     font-size: 4em;
+    padding-top: .4em;
     color: $white;
+}
+
+.toilet-page-btn {
+    background-color: $dark-yellow;
+    color: $brown;
+    border: none;
+    border-radius: 30px;
+    margin-left: 1em;
+    margin-right: 1em;
+    width: 12em;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $light-yellow;
+        transform: scale(1.2)
+    }
+    &:focus {
+        cursor: pointer;
+        background-color: $light-yellow;
+    }
 }
 
 .info-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around
 }
 
 .place-buttons {
     text-align: center;
+    margin: 1em;
 }
 
 .map {
-    height: 100vh;
-}
-
-.toilet-cards {
-    display: flex;
-    justify-content: center;
+    width: 50vw;
 }
 
 .loader {
@@ -43,20 +60,15 @@
     height: 100vh
 }
 
-// @media screen and (max-width: 1380px) {
-//     .info-container {
-//         flex-direction: column;
-//         justify-content: center;
-//     }
-    
-//     .map {
-//         width: 100vw;
-//         height: auto;
-//     }
-// }
 
-@media screen and (max-width: 1200px) {
-    .info-container {
+@media screen and (max-width: 950px) {
+     .park-toilet-title {
+        font-size: 3.5em;
+    }
+}
+
+@media screen and (max-width: 800px) {
+     .info-container {
         flex-direction: column;
         justify-content: center;
     }
@@ -65,16 +77,23 @@
         width: 100vw;
         height: auto;
     }
-}
-
-@media screen and (max-width: 800px) {
-     .toilet-title {
+     .park-toilet-title {
         font-size: 3em;
+    }
+
+    .toilet-page-btn {
+        margin-left: .5em;
+        margin-right: .5em;
+        width: 11em;
     }
 }
 
 @media screen and (max-width: 500px) {
-     .toilet-title {
+     .park-toilet-title {
         font-size: 2em;
+    }
+
+      .toilet-page-btn {
+        margin-top: .5em;
     }
 }
