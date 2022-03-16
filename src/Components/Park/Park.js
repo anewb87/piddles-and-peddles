@@ -52,8 +52,7 @@ class Park extends Component {
                     <section className='info-holder'>
                         {/* <section className='flex'> */}
                         <div className='info-bite'>
-                            <h2 className='category' data-testid='sub-heading'>CYCLING / NON-CAR ADMISSION</h2>
-                            <p data-testid='info-bite'>${entranceFee.cost}</p>
+                            <h2 className='category' data-testid='sub-heading'>CYCLING / NON-CAR ADMISSION: ${entranceFee.cost}</h2>
                             <p data-testid='info-bite'>{entranceFee.description}</p>
                         </div>
                         <div className='info-bite'>
