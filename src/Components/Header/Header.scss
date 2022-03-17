@@ -1,0 +1,17 @@
+@import '../../General\ Styles/_variables.scss';
+
+.header {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid white;
+    // background-color: $green;
+}
+.bike-logo {
+    width: 3.5em;
+    padding-left: 1em;
+}
+
+.name {
+    font-size: 1.4em;
+    padding: .7em;
+}

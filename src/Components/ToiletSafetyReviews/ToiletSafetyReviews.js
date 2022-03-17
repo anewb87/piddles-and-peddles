@@ -70,14 +70,14 @@ class ToiletSafetyReviews extends Component {
             return <section className='redirect-message'>
                 <p>How comfortable do you feel <br />leaving your bike while you do your dooties? <br /> Pick your park, visit a privy, and rate how safe you feel your bike was at this location.</p>
                 <Link to='/'>
-                    <button>Show Me the Mighty Five</button>
+                    <button className='safe-bike-btn mighty-five-btn'>Show Me the Mighty Five</button>
                 </Link>
             </section>
         } else {
             return <section>
                 <h1 className='safe-bike-title'>My Safe Bike Locations</h1>
                 <Link to='/'>
-                    <button>Home</button>
+                    <button className='safe-bike-btn'>Home</button>
                 </Link>
                 {this.createToiletCards()}
             </section>

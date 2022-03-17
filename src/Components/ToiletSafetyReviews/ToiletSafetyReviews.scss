@@ -20,7 +20,31 @@
     font-family: 'Comfortaa', cursive;
     color: $white;
     font-size: 3em;
+}
 
+.safe-bike-btn {
+    margin: .5em;
+    border: none;
+    border-radius: 30px;
+    padding: .4em;
+    width: 6em;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $light-yellow;
+        transform: scale(1.2);
+    }
+    
+    &:focus {
+       cursor: pointer;
+        background-color: $light-yellow;
+        transform: scale(1.2);
+    }
+}
+
+.mighty-five-btn {
+    margin-top: 1.5em;
+    width: 14em
 }
 
 @media screen and (max-width: 650px) {

@@ -32,6 +32,10 @@ class ParkToilets extends Component {
             .then(data => this.setState(({ postedToilets: data }), this.setState({ isLoading: false })))
     }
 
+    addToPostedToilets = (event) => {
+        this.setState({ postedToilets: [... event.target] })
+    }
+
     determinePark = () => {
         let parkName
         if (this.state.selectedParkCode === 'arch') {
