@@ -10,7 +10,7 @@ const ToiletTypes = () => {
                 <button>Home</button>
             </Link> */}
             <Header/>
-            <h2 className='info'>DEAREST READER, IN THE FUTURE THIS WILL BE THE HIGH HOLY PLACE TO FIND OUT INFORMATION ABOUT THE THREE TOILET TYPES OF UTAH'S NATIONAL PARKS. </h2>
+            <h2 className='info'>DEAREST READER, <br/> IN THE FUTURE THIS WILL BE THE HIGH HOLY PLACE TO FIND OUT INFORMATION ABOUT THE THREE TOILET TYPES OF UTAH'S NATIONAL PARKS. </h2>
         </section>
     )
 }
