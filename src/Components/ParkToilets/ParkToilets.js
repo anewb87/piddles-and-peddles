@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getToiletInfo } from '../../apiCalls';
 import ToiletCard from '../ToiletCard/ToiletCard';
 import Error from '../Error/Error';
+import Header from '../Header/Header';
+import { getToiletInfo } from '../../apiCalls';
 import { postToilet } from '../../apiCalls';
 import { getToiletPostings } from '../../apiCalls';
 import { deleteRatedToilet } from '../../apiCalls';
@@ -68,6 +69,7 @@ class ParkToilets extends Component {
                 <ToiletCard 
                     key={toilet.id}
                     id={toilet.id}
+                    park={toilet.park}
                     location={toilet.location}
                     region={toilet.region}
                     type={toilet.type}
@@ -92,11 +94,12 @@ class ParkToilets extends Component {
         } else {
             return (
                 <section className='park-toilet-page'>
+                    <Header/>
                     <h1 data-testid='title' className='park-toilet-title'>{this.determinePark()} Toilet Locator</h1>
                     <div className='place-buttons'>
-                        <Link to='/'>
+                        {/* <Link to='/'>
                             <button className='toilet-page-btn' data-testid='btn-home'>Home</button>
-                        </Link>
+                        </Link> */}
                         <Link to={`/${this.state.selectedParkCode}/park/`}>
                             <button className='toilet-page-btn' data-testid='btn-back-park'>Back to Park</button>
                         </Link>
