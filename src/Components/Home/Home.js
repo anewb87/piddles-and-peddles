@@ -6,7 +6,7 @@ import bryce from '../../Assets/bryce.jpg';
 import canyon from '../../Assets/canyon.jpg';
 import capitol from '../../Assets/capitol.jpg';
 import zion from '../../Assets/zion.jpg';
-import bike from '../../Assets/bike.png'
+// import bike from '../../Assets/bike.png'
 import './Home.scss';
 
 const Home = () => {
