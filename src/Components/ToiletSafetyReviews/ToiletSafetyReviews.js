@@ -5,6 +5,7 @@ import { postToilet } from '../../apiCalls';
 import { deleteRatedToilet } from '../../apiCalls';
 import ToiletCard from '../ToiletCard/ToiletCard';
 import Error from '../Error/Error';
+import Header from '../Header/Header';
 import './ToiletSafetyReviews.scss';
 
 class ToiletSafetyReviews extends Component {
@@ -67,18 +68,22 @@ class ToiletSafetyReviews extends Component {
         if (this.state.error) {
             return <Error />
         } else if (this.state.postedToilets.length === 0) {
-            return <section className='redirect-message'>
-                <p>How comfortable do you feel <br />leaving your bike while you do your dooties? <br /> Pick your park, visit a privy, and rate how safe you feel your bike was at this location.</p>
-                <Link to='/'>
-                    <button className='safe-bike-btn mighty-five-btn'>Show Me the Mighty Five</button>
-                </Link>
-            </section>
+            return <div>
+                <Header/>
+                <section className='redirect-message'>
+                    <p>How comfortable do you feel <br />leaving your bike while you do your dooties? <br /> Pick your park, visit a privy, and rate how safe you feel your bike was at this location.</p>
+                    <Link to='/'>
+                        <button className='safe-bike-btn mighty-five-btn'>Show Me the Mighty Five</button>
+                    </Link>
+                </section>
+            </div>
         } else {
             return <section>
+                <Header/>
                 <h1 className='safe-bike-title'>My Safe Bike Locations</h1>
-                <Link to='/'>
+                {/* <Link to='/'>
                     <button className='safe-bike-btn'>Home</button>
-                </Link>
+                </Link> */}
                 {this.createToiletCards()}
             </section>
         }

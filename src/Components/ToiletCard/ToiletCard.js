@@ -6,7 +6,6 @@ const ToiletCard = ({ id, location, park, region, type, toilet, postToilet, dele
 
     const handleCheckbox = (event) => {
         if(event.target.checked) {
-            console.log(toilet)
             postToilet(toilet)
         } else if (!event.target.checked) {
             deleteToilet(id)
