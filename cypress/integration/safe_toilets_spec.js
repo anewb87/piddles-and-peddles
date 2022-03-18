@@ -9,8 +9,6 @@ describe('User-selected specific park information', () => {
     it('Should display a title, a button to go home, and the posted toilet cards', () => {
         cy.get('h1')
             .should('have.text', 'My Safe Bike Locations')
-            .get('button')
-            .should('have.text', 'Home')
             .get('[data-testid=toilet-card]')
             .should('have.length', 3)
             .get('[data-testid=toilet-card]')
@@ -18,12 +16,13 @@ describe('User-selected specific park information', () => {
             .should('contain', 'Lexy\'s Loo')
     })
 
-    it('Shoud be able to navigate to home page', () => {
-        cy.get('button')
-            .click()
-            .server()
-            .route('/')
-            .get('h1')
-            .should('have.text', 'THE MIGHTY FIVE')
-    })
+    // it('Shoud be able to navigate to home page', () => {
+    //     cy.get('a')
+    //         .eq(1)
+    //         .click()
+    //         .server()
+    //         .route('/')
+    //         .get('h1')
+    //         .should('have.text', 'THE MIGHTY FIVE')
+    // })
 })
