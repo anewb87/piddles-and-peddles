@@ -3,26 +3,27 @@
 .park-overview-page {
     width: 100vw;
     height: 100%;
+    overflow: hidden;
 }
 
 .info-title {
     font-size: 6em;
     color: $navy;
     text-align: center;
+    padding-top: .4em;
     text-shadow: 3px 3px 4px $white
 }
 
 .toilets-info-btn {
     font-family: 'Comfortaa', cursive;
-    text-align: center;
     background-color: $green;
     color: $white;
     font-size: 2em;
-    width: 25vw;
+    width: 20vw;
     opacity: .8;
     border-radius: 30px;
-    text-decoration: none;
     margin: 1em;
+    border: none;
 
     &:hover {
         cursor: pointer;
@@ -49,8 +50,8 @@
 
 .info-holder {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     grid-template-columns: [first] 25% [line2] 25% [line3] auto;
+    grid-gap: 1em;
     text-align: center;
     justify-items: center;
     background-color: $white;
@@ -92,6 +93,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        grid-gap: 0;
     }
     .toilets-info-btn {
         font-size: 2em;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getParkInfo } from '../../apiCalls';
 import Error from '../Error/Error';
+import Header from '../Header/Header';
 import PropTypes from 'prop-types';
 import './Park.scss';
 
@@ -38,11 +39,12 @@ class Park extends Component {
         } else {
             return (
                 <section style={pageStyle} className='park-overview-page'>
+                    <Header />
                     <h1 className='park-page-title info-title'>{this.state.currentPark.name}</h1>
                     <div className='link-container'>
-                        <Link to='/'>
+                        {/* <Link to='/'>
                             <button data-testid='home-button' className='toilets-info-btn'>Home</button>
-                        </Link>
+                        </Link> */}
                         <Link to={`/${this.state.selectedParkCode}/park/potties`}>
                             <button data-testid='potties-button'className='toilets-info-btn'>Park Potties</button>
                         </Link>
@@ -52,8 +54,7 @@ class Park extends Component {
                     <section className='info-holder'>
                         {/* <section className='flex'> */}
                         <div className='info-bite'>
-                            <h2 className='category' data-testid='sub-heading'>CYCLING / NON-CAR ADMISSION</h2>
-                            <p data-testid='info-bite'>${entranceFee.cost}</p>
+                            <h2 className='category' data-testid='sub-heading'>CYCLING / NON-CAR ADMISSION: ${entranceFee.cost}</h2>
                             <p data-testid='info-bite'>{entranceFee.description}</p>
                         </div>
                         <div className='info-bite'>
