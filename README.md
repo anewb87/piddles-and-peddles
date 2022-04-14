@@ -11,7 +11,7 @@
 [Piddes & Peddles](https://piddles-and-peddles.herokuapp.com/)
 
 ## OVERVIEW
-Finding a little privacy to answer Mother Nature's call isn't always so easy when you're out exploring Mother Nature. Especially when you're on a bike. More especially when you're in one of Utah's five National Parks- those places get busy!!! The struggle can become very real and when you have to leave your bike outside amidst among all the people, that can get a bit nerve-wracking. Enter: Piddles & Peddles, an application that lets cyclists know where the restrooms are in Utah's national parks and allows them check whether or not they felt the restroom was safe for their bike.
+Finding a little privacy to answer Mother Nature's call isn't always so easy when you're out exploring Mother Nature. Especially when you're on a bike. More especially when you're in one of Utah's five National Parks- those places get busy!!! The struggle can become very real and when you have to leave your bike outside amidst all the people, that can get a bit nerve-wracking. Enter: Piddles & Peddles, an application that lets cyclists know where the restrooms are in Utah's national parks and allows them check whether or not they felt the restroom was safe for their bike.
 
 View the National Park options and select one. General information about that park is displayed along with a link to the National Park Service's official page.
 
